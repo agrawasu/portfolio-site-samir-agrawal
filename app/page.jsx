@@ -4,9 +4,11 @@ import { FiDownload } from "react-icons/fi"
 // components
 import Social from "@/components/Social";
 import Photo from "@/components/Photo";
+import Stats from "@/components/Stats";
 
 const Home = () => {
   const filler = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui eaque iste molestiae esse commodi porro eius, cupiditate et accusamus suscipit, similique libero velit, unde eligendi perspiciatis provident at quae incidunt!"
+  const intro = "Hello I'm"
 
   return (
     <section className="h-full">
@@ -17,7 +19,7 @@ const Home = () => {
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-xl">Expertise</span>
             <h1 className="h1 mb-6">
-              Hello I am <br /> <span className="text-accent">Name</span>
+              {intro} <br /> <span className="text-accent">Name</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">{filler}</p>
 
@@ -45,6 +47,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Stats />
     </section>
   );
 };
