@@ -78,12 +78,7 @@ export default Photo
 
 
 
-
-
-
-
-
-
-
-
-
+{/* 
+    PLACE: Left off at 01:13:08
+    LINK: https://www.youtube.com/watch?v=dImgZ_AH7uA&t=247s
+    */}
