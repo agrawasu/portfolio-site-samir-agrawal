@@ -132,52 +132,41 @@ const skills = {
 
 // libraries data
 const libraries = {
-  title: "Python Libraries",
+  title: "My Skills",
   description:
     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
   librariesList: [
     {
-      icon:  ,
       name: "Pandas",
     },
     {
-      icon: ,
       name: "NumPy",
     },
     {
-      icon: ,
-      name: "Matplotlib",
-    },
-    {
-      icon: ,
       name: "Tensorflow",
     },
     {
-      icon: ,
       name: "Keras",
     },
     {
-      icon: ,
       name: "PyTorch",
     },
     {
-      icon: ,
+      name: "Matplotlib",
+    },
+    {
       name: "Scikit-Learn",
     },
     {
-      icon: ,
       name: "Scikit-Image",
     },
     {
-      icon: ,
-      name: "OpenCV",
-    },
-    {
-      icon: ,
       name: "Pillow",
     },
     {
-      icon: ,
+      name: "OpenCV",
+    },
+    {
       name: "YOLO",
     },
   ],
@@ -318,18 +307,18 @@ const Resume = () => {
                   </p>
                 </div>
                 <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
-                  {skills.skillsList.map((library, index) => {
+                  {skills.skillsList.map((skills, index) => {
                     return (
                       <li key={index}>
                         <TooltipProvider delayDuration={100}>
                           <Tooltip>
                             <TooltipTrigger className="w-full h-[150px] bg-secondary rounded-xl flex justify-center items-center group">
                               <div className="text-5xl group-hover:text-accent transition-all duration-300">
-                                {library.icon}
+                                {skills.icon}
                               </div>
                             </TooltipTrigger>
                             <TooltipContent>
-                              <p className="capitalize">{library.name}</p>
+                              <p className="capitalize">{skills.name}</p>
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
@@ -343,27 +332,19 @@ const Resume = () => {
               <hr className="my-[30px]" />
 
               {/* python libraries */}
-              <div className="flex flex-col gap-[30px]">
-                <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                  <h3 className="text-4xl font-bold">{libraries.title}</h3>
-                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                    {libraries.description}
-                  </p>
-                </div>
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <h3 className="text-4xl font-bold">Python Libraries</h3>
                 <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px] mb-[30px]">
-                  {libraries.librariesList.map((skill, index) => {
+                  {libraries.librariesList.map((libraries, index) => {
                     return (
                       <li key={index}>
                         <TooltipProvider delayDuration={100}>
                           <Tooltip>
-                            <TooltipTrigger className="w-full h-[150px] bg-secondary rounded-xl flex justify-center items-center group">
-                              <div className="text-5xl group-hover:text-accent transition-all duration-300">
-                                {skill.icon}
+                            <TooltipTrigger className="px-5 group text-white/60">
+                              <div className="group-hover:text-accent transition-all duration-300">
+                                {libraries.name}
                               </div>
                             </TooltipTrigger>
-                            <TooltipContent>
-                              <p className="capitalize">{skill.name}</p>
-                            </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
                       </li>
