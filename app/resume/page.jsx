@@ -329,7 +329,7 @@ const Resume = () => {
                   </ul>
 
                   {/* horizontal line */}
-                  <hr className="my-[30px]" />
+                  <div className="border border-white/20 my-[30px]" />
 
                   {/* python libraries */}
                   <h3 className="text-2xl font-bold">Python Libraries</h3>
