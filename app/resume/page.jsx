@@ -130,6 +130,59 @@ const skills = {
   ],
 };
 
+// libraries data
+const libraries = {
+  title: "Python Libraries",
+  description:
+    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
+  librariesList: [
+    {
+      icon:  ,
+      name: "Pandas",
+    },
+    {
+      icon: ,
+      name: "NumPy",
+    },
+    {
+      icon: ,
+      name: "Matplotlib",
+    },
+    {
+      icon: ,
+      name: "Tensorflow",
+    },
+    {
+      icon: ,
+      name: "Keras",
+    },
+    {
+      icon: ,
+      name: "PyTorch",
+    },
+    {
+      icon: ,
+      name: "Scikit-Learn",
+    },
+    {
+      icon: ,
+      name: "Scikit-Image",
+    },
+    {
+      icon: ,
+      name: "OpenCV",
+    },
+    {
+      icon: ,
+      name: "Pillow",
+    },
+    {
+      icon: ,
+      name: "YOLO",
+    },
+  ],
+};
+
 // about data
 const about = {
   title: "About me",
@@ -255,7 +308,7 @@ const Resume = () => {
               </div>
             </TabsContent>
 
-            {/* skills */}
+            {/* skills and libraries */}
             <TabsContent value="skills" className="w-full h-full">
               <div className="flex flex-col gap-[30px]">
                 <div className="flex flex-col gap-[30px] text-center xl:text-left">
@@ -265,7 +318,40 @@ const Resume = () => {
                   </p>
                 </div>
                 <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
-                  {skills.skillsList.map((skill, index) => {
+                  {skills.skillsList.map((library, index) => {
+                    return (
+                      <li key={index}>
+                        <TooltipProvider delayDuration={100}>
+                          <Tooltip>
+                            <TooltipTrigger className="w-full h-[150px] bg-secondary rounded-xl flex justify-center items-center group">
+                              <div className="text-5xl group-hover:text-accent transition-all duration-300">
+                                {library.icon}
+                              </div>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p className="capitalize">{library.name}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              {/* horizontal line */}
+              <hr className="my-[30px]" />
+
+              {/* python libraries */}
+              <div className="flex flex-col gap-[30px]">
+                <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                  <h3 className="text-4xl font-bold">{libraries.title}</h3>
+                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                    {libraries.description}
+                  </p>
+                </div>
+                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px] mb-[30px]">
+                  {libraries.librariesList.map((skill, index) => {
                     return (
                       <li key={index}>
                         <TooltipProvider delayDuration={100}>
@@ -284,7 +370,6 @@ const Resume = () => {
                     );
                   })}
                 </ul>
-                <hr />
               </div>
             </TabsContent>
 
@@ -318,3 +403,10 @@ const Resume = () => {
 };
 
 export default Resume;
+
+{
+  /* 
+    PLACE: Left off at 2:12:32
+    LINK: https://youtu.be/dImgZ_AH7uA?si=1tV6FWU7rcy2TC9j&t=7952
+    */
+}
