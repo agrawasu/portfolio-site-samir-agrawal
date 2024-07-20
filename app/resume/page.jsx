@@ -91,7 +91,7 @@ const education = {
 
 // skills data
 const skills = {
-  title: "My Skills",
+  title: "My skills",
   description:
     "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
   skillsList: [
@@ -299,19 +299,19 @@ const Resume = () => {
 
             {/* skills and libraries */}
             <TabsContent value="skills" className="w-full h-full">
-              <ScrollArea className="h-[500px]">
-                <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                  <div className="flex flex-col gap-[30px]">
-                    <h3 className="text-4xl font-bold">{skills.title}</h3>
-                    <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                      {skills.description}
-                    </p>
-                  </div>
+              <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                <div className="flex flex-col gap-[30px]">
+                  <h3 className="text-4xl font-bold">{skills.title}</h3>
+                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                    {skills.description}
+                  </p>
+                </div>
+                <ScrollArea className="h-[650px] xl:h-[400px]">
                   <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
                     {skills.skillsList.map((skills, index) => {
                       return (
                         <li key={index}>
-                          <TooltipProvider delayDuration={100}>
+                          <TooltipProvider delayDuration={0}>
                             <Tooltip>
                               <TooltipTrigger className="w-full h-[150px] bg-secondary rounded-xl flex justify-center items-center group">
                                 <div className="text-5xl group-hover:text-accent group-hover:scale-[1.05] transition-all duration-300">
@@ -327,13 +327,10 @@ const Resume = () => {
                       );
                     })}
                   </ul>
-                </div>
 
-                {/* horizontal line */}
-                <hr className="my-[30px]" />
+                  {/* horizontal line */}
+                  <hr className="my-[30px]" />
 
-                {/* python libraries */}
-                <div className="flex flex-col gap-[30px] text-center xl:text-left">
                   <h3 className="text-2xl font-bold">Python Libraries</h3>
                   <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
                     {libraries.librariesList.map((libraries, index) => {
@@ -352,8 +349,8 @@ const Resume = () => {
                       );
                     })}
                   </ul>
-                </div>
-              </ScrollArea>
+                </ScrollArea>
+              </div>
             </TabsContent>
 
             {/* about */}
