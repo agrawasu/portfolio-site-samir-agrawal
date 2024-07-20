@@ -306,7 +306,7 @@ const Resume = () => {
                     {skills.description}
                   </p>
                 </div>
-                <ScrollArea className="h-[650px] xl:h-[400px]">
+                <ScrollArea className="h-[650px] xl:h-[350px]">
                   <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
                     {skills.skillsList.map((skills, index) => {
                       return (
@@ -331,8 +331,9 @@ const Resume = () => {
                   {/* horizontal line */}
                   <hr className="my-[30px]" />
 
+                  {/* python libraries */}
                   <h3 className="text-2xl font-bold">Python Libraries</h3>
-                  <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
+                  <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px] mt-[30px]">
                     {libraries.librariesList.map((libraries, index) => {
                       return (
                         <li key={index}>
