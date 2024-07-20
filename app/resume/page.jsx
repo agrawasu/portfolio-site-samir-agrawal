@@ -299,59 +299,61 @@ const Resume = () => {
 
             {/* skills and libraries */}
             <TabsContent value="skills" className="w-full h-full">
-              <div className="flex flex-col gap-[30px]">
+              <ScrollArea className="h-[500px]">
                 <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                  <h3 className="text-4xl font-bold">{skills.title}</h3>
-                  <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
-                    {skills.description}
-                  </p>
+                  <div className="flex flex-col gap-[30px]">
+                    <h3 className="text-4xl font-bold">{skills.title}</h3>
+                    <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
+                      {skills.description}
+                    </p>
+                  </div>
+                  <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
+                    {skills.skillsList.map((skills, index) => {
+                      return (
+                        <li key={index}>
+                          <TooltipProvider delayDuration={100}>
+                            <Tooltip>
+                              <TooltipTrigger className="w-full h-[150px] bg-secondary rounded-xl flex justify-center items-center group">
+                                <div className="text-5xl group-hover:text-accent group-hover:scale-[1.05] transition-all duration-300">
+                                  {skills.icon}
+                                </div>
+                              </TooltipTrigger>
+                              <TooltipContent>
+                                <p className="capitalize">{skills.name}</p>
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </div>
-                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
-                  {skills.skillsList.map((skills, index) => {
-                    return (
-                      <li key={index}>
-                        <TooltipProvider delayDuration={100}>
-                          <Tooltip>
-                            <TooltipTrigger className="w-full h-[150px] bg-secondary rounded-xl flex justify-center items-center group">
-                              <div className="text-5xl group-hover:text-accent transition-all duration-300">
-                                {skills.icon}
-                              </div>
-                            </TooltipTrigger>
-                            <TooltipContent>
-                              <p className="capitalize">{skills.name}</p>
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
 
-              {/* horizontal line */}
-              <hr className="my-[30px]" />
+                {/* horizontal line */}
+                <hr className="my-[30px]" />
 
-              {/* python libraries */}
-              <div className="flex flex-col gap-[30px] text-center xl:text-left">
-                <h3 className="text-4xl font-bold">Python Libraries</h3>
-                <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px] mb-[30px]">
-                  {libraries.librariesList.map((libraries, index) => {
-                    return (
-                      <li key={index}>
-                        <TooltipProvider delayDuration={100}>
-                          <Tooltip>
-                            <TooltipTrigger className="px-5 group text-white/60">
-                              <div className="group-hover:text-accent transition-all duration-300">
-                                {libraries.name}
-                              </div>
-                            </TooltipTrigger>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
+                {/* python libraries */}
+                <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                  <h3 className="text-2xl font-bold">Python Libraries</h3>
+                  <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
+                    {libraries.librariesList.map((libraries, index) => {
+                      return (
+                        <li key={index}>
+                          <TooltipProvider delayDuration={100}>
+                            <Tooltip>
+                              <TooltipTrigger className="px-5 group text-white/60">
+                                <div className="group-hover:text-accent group-hover:scale-[1.075] transition-all duration-300">
+                                  {libraries.name}
+                                </div>
+                              </TooltipTrigger>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </ScrollArea>
             </TabsContent>
 
             {/* about */}
