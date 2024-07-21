@@ -6,31 +6,24 @@ import Link from "next/link";
 const service = [
   {
     num: "01",
-    title: "Service 01",
+    title: "Fall Co-op/Internship 2024",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
-    href: "",
+      "I am available for a co-op/internship for the Fall 2024 semester! Please reach out to me via email or using the Contact page on my portfolio!",
+    href: "/contact",
   },
   {
     num: "02",
-    title: "Service 02",
+    title: "Spring Co-op/Internship 2025",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
-    href: "",
+      "I am available for a co-op/internship for the Spring 2025 semester! Please reach out to me via email or using the Contact page on my portfolio!",
+    href: "/contact",
   },
   {
     num: "03",
-    title: "Service 03",
+    title: "Other",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
-    href: "",
-  },
-  {
-    num: "04",
-    title: "Service 04",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
-    href: "",
+      "If you have any inquiry outside of the ones listed above, please reach out to me via email or using the Contact page and enter the corresponding details!",
+    href: "/contact",
   },
 ];
 
