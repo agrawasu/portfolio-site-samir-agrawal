@@ -20,23 +20,51 @@ const info = [
   {
     icon: <FaPhoneAlt />,
     title: "Phone",
-    description: "(+1) 321 654 9876",
+    description: "+1 (614) 707 2103",
   },
   {
     icon: <FaEnvelope />,
     title: "Email",
-    description: "youremail@mail.com",
+    description: "agrawasu@mail.uc.edu",
   },
   {
     icon: <FaMapMarkerAlt />,
     title: "Address",
-    description: "Street Name, City, State 12345",
+    description: "384 Silver Sage Lane, Saint Augustine, Florida 32095",
   },
 ];
 
 import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+    const formValues = Object.fromEntries(formData.entries()); // Convert FormData to an object
+
+    try {
+      // Use emailjs to send the form data
+      const response = await emailjs.sendForm(
+        "service_var7cqq",
+        "template_a2fc4ek",
+        form,
+        "l8HAdBwDJ3MpQmSkW"
+      );
+
+      if (response.status === 200) {
+        alert("Message sent successfully!");
+      } else {
+        alert("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Failed to send message.");
+    }
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -47,7 +75,10 @@ const Contact = () => {
         <div className="flex flex-col xl:flex-row gap-[30px]">
           {/* form */}
           <div className="xl:w-[54%] order-2 xl:order-none">
-            <form className="flex flex-col gap-6 p-10 bg-secondary rounded-xl">
+            <form
+              className="flex flex-col gap-6 p-10 bg-secondary rounded-xl"
+              onSubmit={handleSubmit}
+            >
               <h3 className="text-4xl text-accent">Let's work together</h3>
               <p className="text-white/60">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eos iste
@@ -56,28 +87,36 @@ const Contact = () => {
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input type="firstname" placeholder="First name" />
-                <Input type="lastname" placeholder="Last name" />
-                <Input type="email" placeholder="Email" />
-                <Input type="phone" placeholder="Phone number" />
+                <Input name="firstname" type="text" placeholder="First name" />
+                <Input name="lastname" type="text" placeholder="Last name" />
+                <Input name="email" type="email" placeholder="Email" />
+                <Input name="phone" type="text" placeholder="Phone number" />
               </div>
 
               {/* select */}
-              <Select>
+              <Select name="service">
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="est">Item 1</SelectItem>
-                    <SelectItem value="cst">Item 2</SelectItem>
-                    <SelectItem value="mst">Item 3</SelectItem>
+                    <SelectItem value="Fall Co-op - Internship 2024">
+                      Fall Co-op/Internship 2024
+                    </SelectItem>
+                    <SelectItem value="Spring Co-op - Internship 2025">
+                      Spring Co-op/Internship 2025
+                    </SelectItem>
+                    <SelectItem value="Other">Other</SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
               {/* textarea */}
-              <Textarea className="h-[200px]" placeholder="Type your message here." />
+              <Textarea
+                name="message"
+                className="h-[200px]"
+                placeholder="Type your message here."
+              />
 
               {/* button */}
               <Button
