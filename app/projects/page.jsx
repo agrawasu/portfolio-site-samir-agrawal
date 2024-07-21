@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import { BsArrowUpRight, BsGithub } from "react-icons/bs";
+import { BsArrowRight, BsGithub } from "react-icons/bs";
 
 import {
   Tooltip,
@@ -22,10 +22,10 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
   {
     num: "01",
-    category: "Project category",
-    title: "Project 01",
+    category: "Data Analytics",
+    title: "NYC Crash Reports",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
+      "Following a guided project on Coursera, I built a data web app using Python and the other libraries listed below. The purpose of this web app is to display motor vehicle collision data in New York City in a visually appealing way. This is important in Data Analytics as dashboards must be made such that a client can consume and understand the data.",
     builtWith: [
       { name: "Python" },
       { name: "Pandas" },
@@ -35,53 +35,8 @@ const projects = [
       { name: "Plotly" },
     ],
     image: "/assets/projects/crashtracker.png",
-    live: "",
-    github: "",
-  },
-  {
-    num: "02",
-    category: "Project category",
-    title: "Project 02",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
-    builtWith: [
-      { name: "Language/Module 1" },
-      { name: "Language/Module 2" },
-      { name: "Language/Module 3" },
-    ],
-    image: "/",
-    live: "",
-    github: "",
-  },
-  {
-    num: "03",
-    category: "Project category",
-    title: "Project 03",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
-    builtWith: [
-      { name: "Language/Module 1" },
-      { name: "Language/Module 2" },
-      { name: "Language/Module 3" },
-    ],
-    image: "/",
-    live: "",
-    github: "",
-  },
-  {
-    num: "04",
-    category: "Project category",
-    title: "Project 04",
-    description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
-    builtWith: [
-      { name: "Language/Module 1" },
-      { name: "Language/Module 2" },
-      { name: "Language/Module 3" },
-    ],
-    image: "/",
-    live: "",
-    github: "",
+    live: "https://github.com/agrawasu/data-web-app-python",
+    github: "https://github.com/agrawasu/data-web-app-python",
   },
 ];
 
@@ -141,8 +96,8 @@ const Projects = () => {
                 <Link href={project.live}>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full border border-white bg-none flex justify-center items-center hover:bg-accent hover:border-accent transition-all duration-500">
-                        <BsArrowUpRight className="text-white text-3xl" />
+                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full border border-white bg-none flex justify-center items-center hover:bg-accent hover:border-accent hover:-rotate-45 transition-all duration-500">
+                        <BsArrowRight className="text-white text-3xl" />
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>Live project</p>
