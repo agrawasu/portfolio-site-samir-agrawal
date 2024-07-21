@@ -384,10 +384,3 @@ const Resume = () => {
 };
 
 export default Resume;
-
-{
-  /* 
-    PLACE: Left off at 2:12:32
-    LINK: https://youtu.be/dImgZ_AH7uA?si=1tV6FWU7rcy2TC9j&t=7952
-    */
-}
