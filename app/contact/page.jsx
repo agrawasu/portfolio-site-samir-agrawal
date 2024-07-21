@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select";
 
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { useState } from "react";
 
 const contactMessage = "Let's Work Together";
 const info = [
@@ -39,15 +40,33 @@ import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 
 const Contact = () => {
+  const [service, setService] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const validateForm = (formValues) => {
+    let formErrors = {};
+
+    if (!formValues.service) {
+      formErrors.service = "Service is required";
+    }
+
+    return formErrors;
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const form = event.target;
     const formData = new FormData(form);
-    const formValues = Object.fromEntries(formData.entries()); // Convert FormData to an object
+    const formValues = Object.fromEntries(formData.entries());
+
+    const formErrors = validateForm(formValues);
+    if (Object.keys(formErrors).length > 0) {
+      setErrors(formErrors);
+      return;
+    }
 
     try {
-      // Use emailjs to send the form data
       const response = await emailjs.sendForm(
         "service_var7cqq",
         "template_a2fc4ek",
@@ -80,28 +99,35 @@ const Contact = () => {
               className="flex flex-col gap-6 p-10 bg-secondary rounded-xl"
               onSubmit={handleSubmit}
             >
-              <h3 className="text-4xl text-accent">{contactMessage}</h3>
+              <h3 className="text-4xl text-accent font-bold">{contactMessage}</h3>
               <p className="text-white/60">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eos iste
-                neque ipsum totam provident cumque, eaque, odit at, sint vel omnis illo
-                tempore facilis impedit est recusandae rem eveniet.
+                Reach out to me using the form below or the contact information on the
+                right side if you have any questions or inquiries. I am available for
+                co-op/internship for the terms listed in the Inquiry Type dropdown menu.
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Input name="firstname" type="text" placeholder="First name" />
-                <Input name="lastname" type="text" placeholder="Last name" />
-                <Input name="email" type="email" placeholder="Email" />
+                <Input name="firstname" type="text" placeholder="First name" required />
+                <Input name="lastname" type="text" placeholder="Last name" required />
+                <Input name="email" type="email" placeholder="Email" required />
                 <Input name="phone" type="text" placeholder="Phone number" />
               </div>
 
               {/* select */}
-              <Select name="service">
+
+              <Select
+                name="service"
+                onValueChange={(value) => {
+                  setService(value);
+                  setErrors((prev) => ({ ...prev, service: "" }));
+                }}
+              >
                 <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select a service" />
+                  <SelectValue placeholder="Select inquiry type" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    <SelectLabel>Select a service</SelectLabel>
+                    <SelectLabel>Select inquiry type</SelectLabel>
                     <SelectItem value="Fall Co-op - Internship 2024">
                       Fall Co-op/Internship 2024
                     </SelectItem>
@@ -112,11 +138,13 @@ const Contact = () => {
                   </SelectGroup>
                 </SelectContent>
               </Select>
+              {errors.service && <p className="text-red-500">{errors.service}</p>}
               {/* textarea */}
               <Textarea
                 name="message"
                 className="h-[200px]"
                 placeholder="Type your message here."
+                required
               />
 
               {/* button */}

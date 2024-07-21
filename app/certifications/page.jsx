@@ -65,8 +65,11 @@ const Certifications = () => {
                   <div className="text-5xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500">
                     {service.num}
                   </div>
+
+                  {/* button */}
                   <Link
                     href={service.href}
+                    target="_blank"
                     className="w-[70px] h-[70px] rounded-full border border-white bg-none flex justify-center items-center hover:bg-accent hover:border-accent transition-all duration-500 hover:-rotate-45"
                   >
                     <BsArrowDownRight className="text-white text-3xl" />

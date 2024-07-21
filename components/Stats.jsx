@@ -15,10 +15,15 @@ const stats = [
     num: 10,
     text: "Technologies mastered",
   },
+
+  /*
+  
   {
     num: 77,
     text: "Code commits",
   },
+
+  */
 ];
 
 const Stats = () => {
