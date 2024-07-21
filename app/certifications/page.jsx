@@ -6,30 +6,39 @@ import Link from "next/link";
 const service = [
   {
     num: "01",
-    title: "Fall Co-op/Internship 2024",
-    description:
-      "I am available for a co-op/internship for the Fall 2024 semester! Please reach out to me via email or using the Contact page on my portfolio!",
-    href: "/contact",
+    title: "Build a Data Science Web App with Streamlit and Python",
+    description: "Filler",
+    href: "https://coursera.org/verify/JT3PJ8KY4B5U",
   },
   {
     num: "02",
-    title: "Spring Co-op/Internship 2025",
-    description:
-      "I am available for a co-op/internship for the Spring 2025 semester! Please reach out to me via email or using the Contact page on my portfolio!",
-    href: "/contact",
+    title: "Deep Neural Networks with PyTorch",
+    description: "Filler",
+    href: "https://coursera.org/verify/H2JNT8CU2PED",
   },
   {
     num: "03",
-    title: "Other",
-    description:
-      "If you have any inquiry outside of the ones listed above, please reach out to me via email or using the Contact page and enter the corresponding details!",
-    href: "/contact",
+    title: "Introduction to Deep Learning & Neural Networks with Keras",
+    description: "Filler",
+    href: "https://coursera.org/verify/5ZFZ6JEZHD4T",
+  },
+  {
+    num: "04",
+    title: "Introduction to Computer Vision and Image Processing",
+    description: "Filler",
+    href: "https://coursera.org/verify/99XC332MHPH8",
+  },
+  {
+    num: "05",
+    title: "Machine Learning with Python",
+    description: "Filler",
+    href: "https://coursera.org/verify/5DPXLD3JTLCW",
   },
 ];
 
 import { motion } from "framer-motion";
 
-const Services = () => {
+const Certifications = () => {
   return (
     <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
       <div className="container mx-auto">
@@ -85,4 +94,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Certifications;
