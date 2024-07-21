@@ -196,7 +196,7 @@ const Projects = () => {
               {/* slider buttons */}
               <WorkSliderBtns
                 containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                btnStyles="bg-none border-2 border-accent text-accent hover:bg-accent hover:text-white xl:border-none xl:bg-accent xl:hover:text-primary xl:hover:bg-accent-hover xl:text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-[15px] mx-5 transition-all duration-500"
+                btnStyles="bg-none border-2 border-accent text-accent hover:bg-accent hover:text-white text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-[15px] mx-5 transition-all duration-500"
               />
             </Swiper>
           </div>

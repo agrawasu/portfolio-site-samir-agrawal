@@ -21,7 +21,10 @@ const Header = () => {
         <div className="hidden xl:flex items-center gap-8">
           <Nav />
           <Link href="/contact">
-            <Button className="hover:scale-[1.035] transition-all duration-300">
+            <Button
+              variant="outline"
+              className="bg-none border border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300"
+            >
               Hire me
             </Button>
           </Link>
