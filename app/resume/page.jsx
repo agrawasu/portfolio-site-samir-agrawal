@@ -9,47 +9,27 @@ const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
+    "Information regarding the most recent experiences below - as well as a whole host of other great information about me - is detailed on my resume, which can be found on my Home page.",
   items: [
     {
-      company: "Company 1",
-      position: "Position title",
-      duration: "Duration",
+      company: "DDraceNetwork KoG",
+      position: "Community Moderator",
+      duration: "December 2023 - Current",
     },
     {
-      company: "Company 2",
-      position: "Position title",
-      duration: "Duration",
+      company: "University of Cincinnati",
+      position: "Information Technology EEP",
+      duration: "May 2023 - August 2023",
     },
     {
-      company: "Company 3",
-      position: "Position title",
-      duration: "Duration",
+      company: "University of Cincinnati",
+      position: "Undergraduate Researcher",
+      duration: "May 2022 - August 2022",
     },
     {
-      company: "Company 4",
-      position: "Position title",
-      duration: "Duration",
-    },
-    {
-      company: "Company 5",
-      position: "Position title",
-      duration: "Duration",
-    },
-    {
-      company: "Company 6",
-      position: "Position title",
-      duration: "Duration",
-    },
-    {
-      company: "Company 7",
-      position: "Position title",
-      duration: "Duration",
-    },
-    {
-      company: "Company 8",
-      position: "Position title",
-      duration: "Duration",
+      company: "SSOE Group",
+      position: "Student Intern",
+      duration: "August 2021 - December 2021",
     },
   ],
 };
@@ -59,32 +39,27 @@ const education = {
   icon: "/assets/resume/cap.svg",
   title: "My education",
   description:
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
+    "I am currently a remote student studying at the University of Cincinnati. I am majoring in Information Technology, focusing on a dual-track with both Data Technology and Game Development & Simulation. I have taken multiple certification courses in the area of AI/ML which can be found on the Certifications tab. Information below details my education. More information regarding my most recent education - GPA, relevant courses - is detailed on my resume, which can be found on my Home page.",
   items: [
     {
-      institution: "School 1",
-      degree: "Degree title",
-      duration: "XXXX - XXXX",
+      institution: "University of Cincinnati",
+      degree: "Information Technology",
+      duration: "2020 - 2026",
     },
     {
-      institution: "School 2",
-      degree: "Degree title",
-      duration: "XXXX - XXXX",
+      institution: "IBM | Coursera",
+      degree: "IBM AI Engineering Professional Certificate",
+      duration: "June 2024 - Current",
     },
     {
-      institution: "School 3",
-      degree: "Degree title",
-      duration: "XXXX - XXXX",
+      institution: "Microsoft | Coursera",
+      degree: "Introduction to VMs in Microsoft Azure",
+      duration: "July 2024 - Current",
     },
     {
-      institution: "School 4",
-      degree: "Degree title",
-      duration: "XXXX - XXXX",
-    },
-    {
-      institution: "School 5",
-      degree: "Degree title",
-      duration: "XXXX - XXXX",
+      institution: "Google Cloud | Coursera",
+      degree: "Introduction to Generative AI",
+      duration: "July 2024 - Current",
     },
   ],
 };
@@ -93,7 +68,7 @@ const education = {
 const skills = {
   title: "My skills",
   description:
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
+    "The following skills are skills I have developed throughout the duration of my time both at the University of Cincinnati, as well as through the certification courses I am taking.",
   skillsList: [
     {
       icon: <FaPython />,
@@ -176,27 +151,27 @@ const libraries = {
 const about = {
   title: "About me",
   description:
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
+    "As I am still a student, my experience may be limited. Rather than seeing this as a negative, it can be seen as a way of bringing fresh, new, innovative approaches to a vast sea of challenges.",
   info: [
     {
       fieldName: "Name",
-      fieldValue: "My Name",
+      fieldValue: "Samir Agrawal",
     },
     {
       fieldName: "Phone",
-      fieldValue: "My Phone",
+      fieldValue: "+1 (614) 707 2103",
     },
     {
       fieldName: "Experience",
-      fieldValue: "My Experience",
+      fieldValue: "1 year",
     },
     {
       fieldName: "Email",
-      fieldValue: "My Email",
+      fieldValue: "agrawasu@mail.uc.edu",
     },
     {
       fieldName: "Address",
-      fieldValue: "My Address",
+      fieldValue: "384 Silver Sage Lane, St Augustine, Florida 32095",
     },
   ],
 };
