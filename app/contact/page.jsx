@@ -16,6 +16,7 @@ import {
 
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
+const contactMessage = "Let's Work Together";
 const info = [
   {
     icon: <FaPhoneAlt />,
@@ -79,7 +80,7 @@ const Contact = () => {
               className="flex flex-col gap-6 p-10 bg-secondary rounded-xl"
               onSubmit={handleSubmit}
             >
-              <h3 className="text-4xl text-accent">Let's work together</h3>
+              <h3 className="text-4xl text-accent">{contactMessage}</h3>
               <p className="text-white/60">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eos iste
                 neque ipsum totam provident cumque, eaque, odit at, sint vel omnis illo
