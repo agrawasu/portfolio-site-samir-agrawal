@@ -7,31 +7,36 @@ const service = [
   {
     num: "01",
     title: "Build a Data Science Web App with Streamlit and Python",
-    description: "Filler",
+    description:
+      "Interactive map showing motor vehicle collision statistics in New York City built primarily using Python and Streamlit. I gained different organizational strategies and best practices, as well as learned tips for manipulating the code for any data set.",
     href: "https://coursera.org/verify/JT3PJ8KY4B5U",
   },
   {
     num: "02",
     title: "Deep Neural Networks with PyTorch",
-    description: "Filler",
+    description:
+      "As part of a 6 module IBM AI Engineer certification course, this course allowed me to practice the use of some of the most used and versatile Python libraries, including: PyTorch, Pandas, and NumPy. Fundamental to intermediate knowledge regarding Deep Neural Networks was also gathered while obtaining this certification.",
     href: "https://coursera.org/verify/H2JNT8CU2PED",
   },
   {
     num: "03",
     title: "Introduction to Deep Learning & Neural Networks with Keras",
-    description: "Filler",
+    description:
+      "I learned many fundamentals involving Deep Learning and Neural Networks, as well as building them with the various Tensorflow and Keras  libraries.",
     href: "https://coursera.org/verify/5ZFZ6JEZHD4T",
   },
   {
     num: "04",
     title: "Introduction to Computer Vision and Image Processing",
-    description: "Filler",
+    description:
+      "While obtaining this certificate, I was exposed to the vast applications of image classification using tools such as Computer Vision and Pillow, finishing it off with a final project in which we were required to build an image classification model to differentiate between various traffic signs. The mode was trained using a provided set of labelled images.",
     href: "https://coursera.org/verify/99XC332MHPH8",
   },
   {
     num: "05",
     title: "Machine Learning with Python",
-    description: "Filler",
+    description:
+      "This certification course was a very high-level introduction to Machine Learning concepts and how to apply them in Python. A combination of lectures and labs built a very sturdy foundation of knowledge, further reinforced by a final exam and project at the end of the course.",
     href: "https://coursera.org/verify/5DPXLD3JTLCW",
   },
 ];
