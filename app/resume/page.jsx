@@ -9,7 +9,7 @@ const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "Information regarding the most recent experiences below - as well as a whole host of other great information about me - is detailed on my resume, which can be found on my Home page.",
+    "Information regarding the most recent experiences below - as well as more information about me - is detailed on my resume, which can be found on my Home page.",
   items: [
     {
       company: "DDraceNetwork KoG",
@@ -53,7 +53,7 @@ const education = {
     },
     {
       institution: "Microsoft | Coursera",
-      degree: "Introduction to VMs in Microsoft Azure",
+      degree: "Introduction to Virtual Machines in Microsoft Azure",
       duration: "July 2024 - Current",
     },
     {
@@ -171,7 +171,7 @@ const about = {
     },
     {
       fieldName: "Address",
-      fieldValue: "384 Silver Sage Lane, St Augustine, Florida 32095",
+      fieldValue: "384 Silver Sage Lane, Saint Augustine, Florida 32095",
     },
   ],
 };

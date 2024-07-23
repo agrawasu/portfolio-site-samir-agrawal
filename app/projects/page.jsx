@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import { BsArrowRight, BsGithub } from "react-icons/bs";
+import { BsArrowDownRight, BsGithub } from "react-icons/bs";
 
 import {
   Tooltip,
@@ -97,7 +97,7 @@ const Projects = () => {
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full border border-white bg-none flex justify-center items-center hover:bg-accent hover:border-accent hover:-rotate-45 transition-all duration-500">
-                        <BsArrowRight className="text-white text-3xl" />
+                        <BsArrowDownRight className="text-white text-3xl" />
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>Live project</p>

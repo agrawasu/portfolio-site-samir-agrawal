@@ -29,7 +29,7 @@ const service = [
     num: "04",
     title: "Introduction to Computer Vision and Image Processing",
     description:
-      "While obtaining this certificate, I was exposed to the vast applications of image classification using tools such as Computer Vision and Pillow, finishing it off with a final project in which we were required to build an image classification model to differentiate between various traffic signs. The mode was trained using a provided set of labelled images.",
+      "While obtaining this certificate, I was exposed to the vast applications of image classification using tools such as Computer Vision and Pillow, finishing it off with a final project in which we were required to build an image classification model to differentiate between various traffic signs. The model was trained using a provided set of labelled images.",
     href: "https://coursera.org/verify/99XC332MHPH8",
   },
   {
