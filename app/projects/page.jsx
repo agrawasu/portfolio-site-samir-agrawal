@@ -35,7 +35,7 @@ const projects = [
       { name: "Plotly" },
     ],
     image: "/assets/projects/crashtracker.png",
-    live: "https://github.com/agrawasu/data-web-app-python",
+    live: "https://crash-report-nyc.streamlit.app",
     github: "https://github.com/agrawasu/data-web-app-python",
   },
 ];
@@ -162,10 +162,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
-{
-  /* 
-    PLACE: Left off at 2:39:54
-    LINK: https://youtu.be/dImgZ_AH7uA?si=RoqTE7NTQ-MsvKx5&t=9594
-    */
-}
