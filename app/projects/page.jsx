@@ -22,6 +22,24 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
   {
     num: "01",
+    category: "Data Analytics",
+    title: "House Pricing Predictions",
+    description:
+      "This project was part of a guided project in which we were instructed to download a dataset and read it into a dataframe using Pandas. Then, a custom function to plot the predictions (see picture to the right) was created utilizing NumPy and Matplotlib. The data is then cleaned and normalized and then the train and test sets were created. After this, the model is created to have two hidden layers and one output with 10 neurons acting as the input. The model is compiled with the Mean Squared Error loss function and the Adam optimizer. Finally, the model gets trained and tests, and then predictions are made and plotted on a chart.",
+    builtWith: [
+      { name: "TensorFlow" },
+      { name: "Keras" },
+      { name: "Pandas" },
+      { name: "NumPy" },
+      { name: "Matplotlib" },
+      { name: "Scikit-Learn" },
+    ],
+    image: "/assets/projects/housepricing.png",
+    live: "",
+    github: "https://github.com/agrawasu/house-pricing-predictor",
+  },
+  {
+    num: "02",
     category: "Web Development",
     title: "Portfolio Site",
     description:
@@ -41,7 +59,7 @@ const projects = [
     github: "https://github.com/agrawasu/portfolio-site-samir-agrawal",
   },
   {
-    num: "02",
+    num: "03",
     category: "Data Analytics",
     title: "NYC Crash Reports",
     description:
