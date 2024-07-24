@@ -13,8 +13,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: "Portofilo Site",
-  description: "Currently empty porfolio site",
+  title: "Samir Agrawal - Portfolio Site",
+  description: "Samir Agrawal - Portfolio",
 };
 
 export default function RootLayout({ children }) {

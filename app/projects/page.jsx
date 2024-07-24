@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
-import { BsArrowDownRight, BsGithub } from "react-icons/bs";
+import { BsArrowDownRight, BsCheck2, BsX, BsGithub } from "react-icons/bs";
 
 import {
   Tooltip,
@@ -35,13 +35,15 @@ const projects = [
       { name: "Plotly" },
     ],
     image: "/assets/projects/crashtracker.png",
-    live: "https://crash-report-nyc.streamlit.app",
+    live: "https://crash-report-nyc.streamlit.app/",
     github: "https://github.com/agrawasu/data-web-app-python",
   },
 ];
 
 const Projects = () => {
   const [project, setProject] = useState(projects[0]);
+  const [liveHovering, setLiveHovering] = useState(false);
+  const [githubHovering, setGithubHovering] = useState(false);
 
   const handleSlideChange = (swiper) => {
     // get current slide index
@@ -96,11 +98,41 @@ const Projects = () => {
                 <Link href={project.live} target="_blank">
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full border border-white bg-none flex justify-center items-center hover:bg-accent hover:border-accent hover:-rotate-45 transition-all duration-500">
-                        <BsArrowDownRight className="text-white text-3xl" />
+                      <TooltipTrigger
+                        className={`w-[70px] h-[70px] rounded-full border flex justify-center items-center ${
+                          liveHovering
+                            ? project.live
+                              ? "hover:bg-trinary border-trinary"
+                              : "hover:bg-accent border-accent"
+                            : "bg-none border-white"
+                        } hover:-rotate-360 transition-all duration-500`}
+                        onMouseEnter={() => {
+                          setLiveHovering(true);
+                        }}
+                        onMouseLeave={() => {
+                          setLiveHovering(false);
+                        }}
+                      >
+                        {liveHovering ? (
+                          project.live ? (
+                            <BsCheck2 className="text-white text-3xl" />
+                          ) : (
+                            <BsX className="text-white text-4xl" />
+                          )
+                        ) : (
+                          <BsArrowDownRight className="text-white text-3xl" />
+                        )}
                       </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Live project</p>
+                      <TooltipContent className="max-w-[32ch] bg-secondary border-none text-white/60">
+                        {project.live ? (
+                          <p>Live project</p>
+                        ) : (
+                          <p>
+                            This project has not been deployed. If there is a Github
+                            repository, please open the project there and follow the
+                            instructions in the README.md file to see how to run it
+                          </p>
+                        )}
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -110,11 +142,37 @@ const Projects = () => {
                 <Link href={project.github} target="_blank">
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full border border-white bg-none flex justify-center items-center hover:bg-accent hover:border-accent transition-all duration-500">
-                        <BsGithub className="text-white text-3xl" />
+                      <TooltipTrigger
+                        className={`w-[70px] h-[70px] rounded-full border flex justify-center items-center ${
+                          githubHovering
+                            ? project.github
+                              ? "hover:bg-trinary border-trinary"
+                              : "hover:bg-accent border-accent"
+                            : "bg-none border-white"
+                        } hover:-rotate-360 transition-all duration-500`}
+                        onMouseEnter={() => {
+                          setGithubHovering(true);
+                        }}
+                        onMouseLeave={() => {
+                          setGithubHovering(false);
+                        }}
+                      >
+                        {githubHovering ? (
+                          project.github ? (
+                            <BsGithub className="text-white text-3xl" />
+                          ) : (
+                            <BsX className="text-white text-4xl" />
+                          )
+                        ) : (
+                          <BsGithub className="text-white text-3xl" />
+                        )}
                       </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Github repository</p>
+                      <TooltipContent className="max-w-[32ch] bg-secondary border-none text-white/60">
+                        {project.github ? (
+                          <p>Github repository</p>
+                        ) : (
+                          <p>There is no Github repository available for this project</p>
+                        )}
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>

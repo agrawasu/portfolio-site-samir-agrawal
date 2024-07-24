@@ -26,6 +26,7 @@ module.exports = {
       colors: {
         primary: "#1e2124",
         secondary: "#282b30",
+        trinary: "#7be382",
         accent: {
           DEFAULT: "#f97c7c",
           hover: "#fe5757",
@@ -45,6 +46,12 @@ module.exports = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+
+      rotate: {
+        360: "360deg",
+        520: "520deg",
+        720: "720deg",
       },
     },
   },
