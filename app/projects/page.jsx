@@ -22,6 +22,26 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
   {
     num: "01",
+    category: "Web Development",
+    title: "Portfolio Site",
+    description:
+      "Using a video to familiarize myself with NextJS and Tailwind CSS, I built a very responsive and modern site to display my accomplishments and experience to be presented directly to employers who are curious about what I have done. Yes, I built this site from scratch! While the foundation of the site was built following a guide, many components have been altered to fit my personal desires and show off information that I wish to show. The site is currently deployed on Netlify and is stored in a Github repository, both of which are linked below.",
+    builtWith: [
+      { name: "NextJS" },
+      { name: "Tailwind CSS" },
+      { name: "React" },
+      { name: "JavaScript" },
+      { name: "HTML" },
+      { name: "CSS" },
+      { name: "Bootstrap" },
+      { name: "Framer" },
+    ],
+    image: "/assets/projects/portfolio.png",
+    live: "https://samir-agrawal-portfolio.netlify.app/",
+    github: "https://github.com/agrawasu/portfolio-site-samir-agrawal",
+  },
+  {
+    num: "02",
     category: "Data Analytics",
     title: "NYC Crash Reports",
     description:
