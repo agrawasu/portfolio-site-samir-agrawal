@@ -150,7 +150,7 @@ const Projects = () => {
                           liveHovering
                             ? project.live
                               ? "hover:bg-trinary border-trinary"
-                              : "hover:bg-accent border-accent"
+                              : "hover:bg-accent border-accent cursor-not-allowed"
                             : "bg-none border-white"
                         } hover:-rotate-360 transition-all duration-500`}
                         onMouseEnter={() => {
