@@ -30,6 +30,7 @@ module.exports = {
         accent: {
           DEFAULT: "#f97c7c",
           hover: "#fe5757",
+          greyed: "#a29090",
         },
       },
 

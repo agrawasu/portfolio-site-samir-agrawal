@@ -1,7 +1,7 @@
 "use client";
 
 import { easeIn, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -44,6 +44,7 @@ const Projects = () => {
   const [project, setProject] = useState(projects[0]);
   const [liveHovering, setLiveHovering] = useState(false);
   const [githubHovering, setGithubHovering] = useState(false);
+  const swiperRef = useRef(null);
 
   const handleSlideChange = (swiper) => {
     // get current slide index
@@ -51,6 +52,14 @@ const Projects = () => {
     // update project state based on current slide index
     setProject(projects[currentIndex]);
   };
+
+  const handleSwiperInit = (swiper) => {
+    swiperRef.current = swiper;
+    console.log(swiperRef.current);
+  };
+
+  const isFirstSlide = swiperRef.current?.activeIndex === 0;
+  const isLastSlide = swiperRef.current?.activeIndex === projects.length - 1;
 
   return (
     <motion.section
@@ -186,6 +195,7 @@ const Projects = () => {
               slidesPerView={1}
               className="xl:h-[520px] mb-12"
               onSlideChange={handleSlideChange}
+              onSwiper={handleSwiperInit}
             >
               {projects.map((projects, index) => {
                 return (
@@ -207,10 +217,7 @@ const Projects = () => {
                 );
               })}
               {/* slider buttons */}
-              <WorkSliderBtns
-                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                btnStyles="bg-none border-2 border-accent text-accent hover:bg-accent hover:text-white text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-[15px] mx-5 transition-all duration-500"
-              />
+              <WorkSliderBtns containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none" />
             </Swiper>
           </div>
         </div>
