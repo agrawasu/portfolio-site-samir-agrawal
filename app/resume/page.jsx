@@ -1,7 +1,7 @@
 "use client";
 
 import { FaHtml5, FaCss3, FaJs, FaPython, FaJava } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs, SiPowerbi } from "react-icons/si";
+import { SiTailwindcss, SiNextdotjs, SiPowerbi, SiCsharp } from "react-icons/si";
 import { TbBrandOffice } from "react-icons/tb";
 
 // experience data
@@ -97,6 +97,10 @@ const skills = {
     {
       icon: <SiNextdotjs />,
       name: "Next JS",
+    },
+    {
+      icon: <SiCsharp />,
+      name: "C#",
     },
     {
       icon: <SiPowerbi />,

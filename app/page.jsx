@@ -12,7 +12,7 @@ const Home = () => {
     "I am an IT student at the University of Cincinnati and I have a heavy interest in anything related to Artificial Intelligence and Machine Learning and I want to grow my knowledge in both of these fields as much as possible.";
   const intro = "Hello I'm";
   const resumeLink =
-    "https://drive.google.com/uc?export=download&id=1JNLYFf8lLPrnfd_w7P5gArpCbgra1feO";
+    "https://drive.google.com/uc?export=download&id=1FT6y9ta1g-v3MGvVSk0x2Iqj78kry6dH";
 
   return (
     <section className="h-full">
