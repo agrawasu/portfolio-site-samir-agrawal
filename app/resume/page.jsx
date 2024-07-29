@@ -1,8 +1,8 @@
 "use client";
 
 import { FaHtml5, FaCss3, FaJs, FaPython, FaJava } from "react-icons/fa";
-
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import { SiTailwindcss, SiNextdotjs, SiPowerbi } from "react-icons/si";
+import { TbBrandOffice } from "react-icons/tb";
 
 // experience data
 const experience = {
@@ -68,7 +68,7 @@ const education = {
 const skills = {
   title: "My skills",
   description:
-    "The following skills are skills I have developed throughout the duration of my time both at the University of Cincinnati, as well as through the certification courses I am taking.",
+    "The following skills are skills I have developed throughout the duration of my time at the University of Cincinnati, the certification courses I am taking, and projects I have worked on.",
   skillsList: [
     {
       icon: <FaPython />,
@@ -99,8 +99,12 @@ const skills = {
       name: "Next JS",
     },
     {
-      icon: <FaPython />,
-      name: "Filler",
+      icon: <SiPowerbi />,
+      name: "Microsoft PowerBI",
+    },
+    {
+      icon: <TbBrandOffice />,
+      name: "Microsoft Office 360",
     },
   ],
 };
