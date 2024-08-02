@@ -13,7 +13,7 @@ const experience = {
   items: [
     {
       company: "DDraceNetwork KoG",
-      position: "Community Moderator",
+      position: "Moderator",
       duration: "December 2023 - Current",
     },
     {
