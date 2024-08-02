@@ -22,6 +22,22 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
     {
         num: "01",
+        category: "Translation using API",
+        title: "Text File Translator",
+        description:
+            "Responding to a need I came across while doing Moderation work for DDraceNetwork KoG (can be seen in my experience tab in the Resume section), I created a program using Python that would allow me to input a text file that contains chat logs from a server instance in-game. Due to the large majority of the player base being non-English speakers, understanding the logs became a hassle. To combat this, I built this program that allows me to use the DeepL API for machine translation of any language that is detected within the text file and translates it to any language the user chooses - in my case, English (EN-US).",
+        builtWith: [
+            {name: "Python"},
+            {name: "os"},
+            {name: "json"},
+            {name: "DeepL API"},
+        ],
+        image: "/assets/projects/texttranslator.png",
+        live: "",
+        github: "https://github.com/agrawasu/text-translator",
+    },
+    {
+        num: "02",
         category: "Encryption",
         title: "Password Manager using Staganography",
         description:
@@ -39,7 +55,7 @@ const projects = [
         github: "https://github.com/agrawasu/steganography-password-manager",
     },
     {
-        num: "02",
+        num: "03",
         category: "Data Analytics",
         title: "House Pricing Predictions",
         description:
@@ -57,7 +73,7 @@ const projects = [
         github: "https://github.com/agrawasu/house-pricing-predictor",
     },
     {
-        num: "03",
+        num: "04",
         category: "Web Development",
         title: "Portfolio Site",
         description:
@@ -77,7 +93,7 @@ const projects = [
         github: "https://github.com/agrawasu/portfolio-site-samir-agrawal",
     },
     {
-        num: "04",
+        num: "05",
         category: "Data Analytics",
         title: "NYC Crash Reports",
         description:
