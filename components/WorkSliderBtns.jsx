@@ -40,7 +40,7 @@ const WorkSliderBtns = ({
       <button
         className={`bg-none border-2 border-accent text-accent hover:bg-accent hover:text-white text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-[15px] mx-5 transition-all duration-500 ${
           isFirstSlide
-            ? "opacity-50 border-secondary text-secondary hover:bg-secondary hover:text-white/60 xl:border-secondary xl:text-secondary xl:hover:bg-secondary xl:hover:text-white/60 cursor-not-allowed hover:text-3xl duration-100 ease-in-out"
+            ? "opacity-50 border-secondary text-secondary hover:bg-secondary hover:text-white/60 xl:border-secondary xl:text-secondary xl:hover:bg-secondary xl:hover:text-white/60 cursor-not-allowed duration-100 ease-in-out"
             : ""
         }`}
         onClick={() => !isFirstSlide && swiper.slidePrev()}
@@ -48,7 +48,7 @@ const WorkSliderBtns = ({
         onMouseLeave={() => setHoveredPrev(false)}
       >
         {isFirstSlide && hoveredPrev ? (
-          <BsX className={iconsStyles} />
+          <BsX size={30} className={iconsStyles} />
         ) : (
           <PiCaretLeftBold className={iconsStyles} />
         )}
@@ -56,7 +56,7 @@ const WorkSliderBtns = ({
       <button
         className={`bg-none border-2 border-accent text-accent hover:bg-accent hover:text-white text-[22px] w-[44px] h-[44px] flex justify-center items-center rounded-[15px] mx-5 transition-all duration-500 ${
           isLastSlide
-            ? "opacity-50 border-secondary text-secondary hover:bg-secondary hover:text-white/60 xl:border-secondary xl:text-secondary xl:hover:bg-secondary xl:hover:text-white/60 cursor-not-allowed hover:text-3xl duration-100 ease-in-out"
+            ? "opacity-50 border-secondary text-secondary hover:bg-secondary hover:text-white/60 xl:border-secondary xl:text-secondary xl:hover:bg-secondary xl:hover:text-white/60 cursor-not-allowed duration-100 ease-in-out"
             : ""
         }`}
         onClick={() => !isLastSlide && swiper.slideNext()}
@@ -64,7 +64,7 @@ const WorkSliderBtns = ({
         onMouseLeave={() => setHoveredNext(false)}
       >
         {isLastSlide && hoveredNext ? (
-          <BsX className={iconsStyles} />
+          <BsX size={30} className={iconsStyles} />
         ) : (
           <PiCaretRightBold className={iconsStyles} />
         )}
