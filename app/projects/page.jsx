@@ -22,6 +22,28 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
     {
         num: "01",
+        category: "Machine Learning | API",
+        title: "Recommended Max Bid Calculator",
+        description:
+            "The purpose of this program/app is to help automate the recommended max bid of foreclosure properties. As someone who is starting out with real-estate foreclosure investing, knowing where to cap out at when bidding is a little difficult to calculate, so I built a Decision Tree model to help get the data from previous auctions and predict future auction outcomes. Due to my extremely low sample size, I also had to use data augmentation methods to generate enough data points to get started.",
+        builtWith: [
+            {name: "Python"},
+            {name: "Django"},
+            {name: "SciKit-Learn"},
+            {name: "Pandas"},
+            {name: "Numpy"},
+            {name: "os"},
+            {name: "re"},
+            {name: "datetime"},
+            {name: "Requests"},
+            {name: "Microsft SQL Server Management Studio"},
+        ],
+        image: "/assets/projects/foreclosuresfl.png",
+        live: "",
+        github: "https://github.com/agrawasu/foreclosureProperties",
+    },
+    {
+        num: "02",
         category: "Translation using API",
         title: "Text File Translator",
         description:
@@ -37,7 +59,7 @@ const projects = [
         github: "https://github.com/agrawasu/text-translator",
     },
     {
-        num: "02",
+        num: "03",
         category: "Encryption",
         title: "Password Manager using Staganography",
         description:
@@ -55,7 +77,7 @@ const projects = [
         github: "https://github.com/agrawasu/steganography-password-manager",
     },
     {
-        num: "03",
+        num: "04",
         category: "Data Analytics",
         title: "House Pricing Predictions",
         description:
@@ -73,7 +95,7 @@ const projects = [
         github: "https://github.com/agrawasu/house-pricing-predictor",
     },
     {
-        num: "04",
+        num: "05",
         category: "Web Development",
         title: "Portfolio Site",
         description:
@@ -93,7 +115,7 @@ const projects = [
         github: "https://github.com/agrawasu/portfolio-site-samir-agrawal",
     },
     {
-        num: "05",
+        num: "06",
         category: "Data Analytics",
         title: "NYC Crash Reports",
         description:
