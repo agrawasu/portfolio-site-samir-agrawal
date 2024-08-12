@@ -1,7 +1,7 @@
 "use client";
 
 import { FaHtml5, FaCss3, FaJs, FaPython, FaJava } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs, SiPowerbi, SiCsharp } from "react-icons/si";
+import { SiTailwindcss, SiNextdotjs, SiPowerbi, SiCsharp, SiMicrosoftsqlse } from "react-icons/si";
 import { TbBrandOffice } from "react-icons/tb";
 
 // experience data
@@ -110,14 +110,16 @@ const skills = {
       icon: <TbBrandOffice />,
       name: "Microsoft Office 360",
     },
+    {
+      icon: <SiMicrosoftsqlse />,
+      name: "Microsoft Office 360",
+    },
   ],
 };
 
 // libraries data
 const libraries = {
   title: "My Skills",
-  description:
-    "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad blanditiis sint, numquam possimus suscipit ducimus.",
   librariesList: [
     {
       name: "Pandas",
@@ -151,6 +153,12 @@ const libraries = {
     },
     {
       name: "YOLO",
+    },
+    {
+      name: "Django",
+    },
+    {
+      name: "Requests",
     },
   ],
 };
