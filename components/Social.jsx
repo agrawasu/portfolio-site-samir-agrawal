@@ -6,7 +6,7 @@ const socials = [
   { icon: <FaGithub />, path: "https://github.com/agrawasu" },
   {
     icon: <FaLinkedinIn />,
-    path: "https://www.linkedin.com/in/samir-agrawal-83a2b52ab/",
+    path: "https://www.linkedin.com/in/samir-agrawal-b659351ba/",
   },
   { icon: <FaTwitter />, path: "https://x.com/sagrawal22" },
 ];
