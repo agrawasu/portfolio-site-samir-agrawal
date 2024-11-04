@@ -2,7 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .scrollbar-thumb-rounded-full {
+    scrollbar-thumb-rounded: full
+  }
+  .scrollbar-track-rounded-full {
+    scrollbar-thumb-rounded: full
+  }
+}
+
 @layer base {
+  html {
+    @apply scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-accent scrollbar-track-secondary overflow-y-scroll;
+  }
   body {
     @apply font-primary bg-primary text-white leading-loose;
   }

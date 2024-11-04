@@ -1,7 +1,7 @@
 "use client";
 
 import { FaHtml5, FaCss3, FaJs, FaPython, FaJava } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs, SiPowerbi, SiCsharp, SiMicrosoftsqlse } from "react-icons/si";
+import { SiTailwindcss, SiNextdotjs, SiPowerbi, SiCsharp, SiMicrosoftsqlserver } from "react-icons/si";
 import { TbBrandOffice } from "react-icons/tb";
 
 // experience data
@@ -49,7 +49,7 @@ const education = {
     {
       institution: "IBM | Coursera",
       degree: "IBM AI Engineering Professional Certificate",
-      duration: "June 2024 - Current",
+      duration: "June 2024 - July 2024",
     },
     {
       institution: "Microsoft | Coursera",
@@ -111,8 +111,8 @@ const skills = {
       name: "Microsoft Office 360",
     },
     {
-      icon: <SiMicrosoftsqlse />,
-      name: "Microsoft Office 360",
+      icon: <SiMicrosoftsqlserver />,
+      name: "Microsoft SQL Server Management Studio",
     },
   ],
 };
@@ -215,7 +215,7 @@ const Resume = () => {
           ease: "easeIn",
         },
       }}
-      className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
+      className="min-h-[80vh] flex items-center justify-center py-12"
     >
       <div className="container mx-auto">
         <Tabs defaultValue="experience" className="flex flex-col xl:flex-row gap-[60px]">
