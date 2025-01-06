@@ -18,12 +18,12 @@ const Header = () => {
         </Link>
 
         {/* desktop nav & hire me */}
-        <div className="hidden xl:flex items-center gap-8">
+        <div className="hidden md:flex lg:flex xl:flex items-center gap-8">
           <Nav />
           <Link href="/contact">
             <Button
               variant="outline"
-              className="bg-none border border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300"
+              className="md:hidden bg-none border border-accent text-accent hover:bg-accent hover:text-white transition-all duration-300"
             >
               Hire me
             </Button>
@@ -31,7 +31,7 @@ const Header = () => {
         </div>
 
         {/* mobile nav */}
-        <div className="xl:hidden">
+        <div className="md:hidden lg:hidden xl:hidden">
           <MobileNav />
         </div>
       </div>
