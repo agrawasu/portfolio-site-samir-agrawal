@@ -12,8 +12,8 @@ const experience = {
     "Information regarding the most recent experiences below - as well as more information about me - is detailed on my resume, which can be found on my Home page.",
   items: [
     {
-      company: "Real-Estate Investor",
-      position: "Self-Employed",
+      company: "Self-Employed",
+      position: "Real-Estate Investor",
       duration: "August 2024 - Current",
     },
     {
