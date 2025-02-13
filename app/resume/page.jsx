@@ -12,9 +12,9 @@ const experience = {
     "Information regarding the most recent experiences below - as well as more information about me - is detailed on my resume, which can be found on my Home page.",
   items: [
     {
-      company: "DDraceNetwork KoG",
-      position: "Lead Moderator",
-      duration: "December 2023 - January 2025",
+      company: "Real-Estate Investor",
+      position: "Self-Employed",
+      duration: "August 2024 - Current",
     },
     {
       company: "University of Cincinnati",
