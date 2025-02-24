@@ -47,7 +47,7 @@ const projects = [
         category: "Translation using API",
         title: "Text File Translator",
         description:
-            "Responding to a need I came across while doing Moderation work for DDraceNetwork KoG (can be seen in my experience tab in the Resume section), I created a program using Python that would allow me to input a text file that contains chat logs from a server instance in-game. Due to the large majority of the player base being non-English speakers, understanding the logs became a hassle. To combat this, I built this program that allows me to use the DeepL API for machine translation of any language that is detected within the text file and translates it to any language the user chooses - in my case, English (EN-US).",
+            "Responding to a need I came across while doing voluntary Moderation work for a videogame's community platform, DDraceNetwork KoG, I created a program using Python that would allow me to input a text file that contains chat logs from a server instance in-game. Due to the large majority of the player base being non-English speakers, understanding the logs became a hassle. To combat this, I built this program that allows me to use the DeepL API for machine translation of any language that is detected within the text file and translates it to any language the user chooses - in my case, English (EN-US).",
         builtWith: [
             {name: "Python"},
             {name: "os"},
@@ -276,9 +276,9 @@ const Projects = () => {
                                             <TooltipContent
                                                 className="max-w-[32ch] bg-secondary border-none text-white/60">
                                                 {project.github ? (
-                                                    <p>Github repository</p>
+                                                    <p>GitHub repository</p>
                                                 ) : (
-                                                    <p>There is no Github repository available for this project</p>
+                                                    <p>There is no GitHub repository available for this project</p>
                                                 )}
                                             </TooltipContent>
                                         </Tooltip>
