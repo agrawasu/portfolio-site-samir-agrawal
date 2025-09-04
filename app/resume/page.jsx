@@ -12,6 +12,11 @@ const experience = {
     "Information regarding the most recent experiences below - as well as more information about me - is detailed on my resume, which can be found on my Home page.",
   items: [
     {
+      company: "Siemens Digital Industries",
+      position: "SaaS Governance Execution Intern",
+      duration: "May 2025 - August 2025",
+    },
+    {
       company: "Self-Employed",
       position: "Real-Estate Investor",
       duration: "August 2024 - Current",
@@ -209,11 +214,11 @@ const Resume = () => {
     >
       <div className="container mx-auto">
         <Tabs defaultValue="experience" className="flex flex-col xl:flex-row gap-[60px]">
-          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-            <TabsTrigger value="experience">Experience</TabsTrigger>
-            <TabsTrigger value="education">Education</TabsTrigger>
-            <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="about">About me</TabsTrigger>
+          <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6 transition-all duration-500">
+            <TabsTrigger value="experience" className="hover:scale-[1.025]">Experience</TabsTrigger>
+            <TabsTrigger value="education" className="hover:scale-[1.025]">Education</TabsTrigger>
+            <TabsTrigger value="skills" className="hover:scale-[1.025]">Skills</TabsTrigger>
+            <TabsTrigger value="about" className="hover:scale-[1.025]">About me</TabsTrigger>
           </TabsList>
 
           {/* content */}

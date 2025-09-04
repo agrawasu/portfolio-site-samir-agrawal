@@ -22,6 +22,21 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
     {
         num: "01",
+        category: "Moderation Tool",
+        title: "KoG Hammer",
+        description:
+            "KoG Hammer is a moderation tool - in the form of a Discord bot - built for the hard-working moderators of the King of Gores (KoG) network. This tool serves to streamline the full process of applying a punishment to a user who breaks a rule. The workflow it follows utilizes old practices and optimizes the process by up to almost 90%, while introducing a new merit-based approach to our punishment system. This Discord bot maximizes consistency at the same time by providing a structured output log. With twenty-four (24) commands already in place with the bot, tons of updates are being made to ensure this bot is as error-free as possible.",
+        builtWith: [
+            {name: "Python"},
+            {name: "Discord"},
+            {name: "PostgreSQL"},
+        ],
+        image: "/assets/projects/koghammer.png",
+        live: "",
+        github: "https://github.com/KoG-teeworlds/kog-hammer",
+    },
+    {
+        num: "02",
         category: "Machine Learning | API",
         title: "Recommended Max Bid Calculator",
         description:
@@ -43,7 +58,7 @@ const projects = [
         github: "https://github.com/agrawasu/foreclosureProperties",
     },
     {
-        num: "02",
+        num: "03",
         category: "Translation using API",
         title: "Text File Translator",
         description:
@@ -59,7 +74,7 @@ const projects = [
         github: "https://github.com/agrawasu/text-translator",
     },
     {
-        num: "03",
+        num: "04",
         category: "Encryption",
         title: "Password Manager using Staganography",
         description:
@@ -77,7 +92,7 @@ const projects = [
         github: "https://github.com/agrawasu/steganography-password-manager",
     },
     {
-        num: "04",
+        num: "05",
         category: "Data Analytics",
         title: "House Pricing Predictions",
         description:
@@ -95,7 +110,7 @@ const projects = [
         github: "https://github.com/agrawasu/house-pricing-predictor",
     },
     {
-        num: "05",
+        num: "06",
         category: "Web Development",
         title: "Portfolio Site",
         description:
@@ -115,7 +130,7 @@ const projects = [
         github: "https://github.com/agrawasu/portfolio-site-samir-agrawal",
     },
     {
-        num: "06",
+        num: "07",
         category: "Data Analytics",
         title: "NYC Crash Reports",
         description:

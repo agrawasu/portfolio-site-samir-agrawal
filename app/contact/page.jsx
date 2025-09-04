@@ -128,11 +128,11 @@ const Contact = () => {
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select inquiry type</SelectLabel>
-                    <SelectItem value="Spring Co-op - Internship 2025">
-                      Spring Co-op/Internship 2025
+                    <SelectItem value="Spring Co-op/Internship 2026">
+                      Spring Co-op/Internship 2026
                     </SelectItem>
-                    <SelectItem value="Summer Co-op - Internship 2025">
-                      Summer Co-op/Internship 2025
+                    <SelectItem value="Full-time - Summer 2026">
+                      Full-time Position Summer 2026
                     </SelectItem>
                     <SelectItem value="Other">Other</SelectItem>
                   </SelectGroup>
