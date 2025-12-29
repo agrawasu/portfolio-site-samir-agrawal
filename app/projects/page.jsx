@@ -22,6 +22,30 @@ import WorkSliderBtns from "@/components/WorkSliderBtns";
 const projects = [
     {
         num: "01",
+        category: "Full-Stack Web Application",
+        title: "KoG Support Portal",
+        description:
+            "A modern support ticket management system built for the KoG gaming community. Features secure OAuth authentication via KoG's identity provider, real-time ticket updates using Server-Sent Events (SSE), file attachments with MinIO object storage, role-based access control (user/moderator/admin), and comprehensive ticket management capabilities including creation, replies, status tracking, and administrative oversight. The application includes seasonal decorations (like snowflakes), dark mode support, and a responsive mobile-friendly interface.",
+        builtWith: [
+            {name: "React"},
+            {name: "TypeScript"},
+            {name: "Vite"},
+            {name: "TailwindCSS"},
+            {name: "Node.js"},
+            {name: "Express"},
+            {name: "PostgreSQL"},
+            {name: "Drizzle ORM"},
+            {name: "OAuth 2.0"},
+            {name: "MinIO"},
+            {name: "Server-Sent Events"},
+            {name: "Docker"},
+        ],
+        image: "/assets/projects/kogsupportportal.png",
+        live: "",
+        github: "",
+    },
+    {
+        num: "02",
         category: "Moderation Tool",
         title: "KoG Hammer",
         description:
@@ -36,7 +60,7 @@ const projects = [
         github: "https://github.com/KoG-teeworlds/kog-hammer",
     },
     {
-        num: "02",
+        num: "03",
         category: "Machine Learning | API",
         title: "Recommended Max Bid Calculator",
         description:
@@ -58,7 +82,7 @@ const projects = [
         github: "https://github.com/agrawasu/foreclosureProperties",
     },
     {
-        num: "03",
+        num: "04",
         category: "Translation using API",
         title: "Text File Translator",
         description:
@@ -74,7 +98,7 @@ const projects = [
         github: "https://github.com/agrawasu/text-translator",
     },
     {
-        num: "04",
+        num: "05",
         category: "Encryption",
         title: "Password Manager using Staganography",
         description:
@@ -92,7 +116,7 @@ const projects = [
         github: "https://github.com/agrawasu/steganography-password-manager",
     },
     {
-        num: "05",
+        num: "06",
         category: "Data Analytics",
         title: "House Pricing Predictions",
         description:
@@ -110,7 +134,7 @@ const projects = [
         github: "https://github.com/agrawasu/house-pricing-predictor",
     },
     {
-        num: "06",
+        num: "07",
         category: "Web Development",
         title: "Portfolio Site",
         description:
@@ -130,7 +154,7 @@ const projects = [
         github: "https://github.com/agrawasu/portfolio-site-samir-agrawal",
     },
     {
-        num: "07",
+        num: "08",
         category: "Data Analytics",
         title: "NYC Crash Reports",
         description:

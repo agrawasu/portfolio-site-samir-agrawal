@@ -1,7 +1,7 @@
 "use client";
 
-import { FaHtml5, FaCss3, FaJs, FaPython, FaJava } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs, SiPowerbi, SiCsharp, SiMicrosoftsqlserver } from "react-icons/si";
+import { FaHtml5, FaCss3, FaJs, FaPython, FaJava, FaReact, FaNodeJs, FaDocker, FaGitAlt } from "react-icons/fa";
+import { SiTailwindcss, SiNextdotjs, SiPowerbi, SiCsharp, SiMicrosoftsqlserver, SiTypescript, SiPostgresql } from "react-icons/si";
 import { TbBrandOffice } from "react-icons/tb";
 
 // experience data
@@ -74,6 +74,14 @@ const skills = {
       name: "Java",
     },
     {
+      icon: <SiTypescript />,
+      name: "TypeScript",
+    },
+    {
+      icon: <FaJs />,
+      name: "JavaScript",
+    },
+    {
       icon: <FaHtml5 />,
       name: "HTML",
     },
@@ -82,20 +90,40 @@ const skills = {
       name: "CSS",
     },
     {
-      icon: <FaJs />,
-      name: "JavaScript",
+      icon: <SiCsharp />,
+      name: "C#",
     },
     {
-      icon: <SiTailwindcss />,
-      name: "Tailwind Css",
+      icon: <FaReact />,
+      name: "React",
     },
     {
       icon: <SiNextdotjs />,
-      name: "Next JS",
+      name: "Next.js",
     },
     {
-      icon: <SiCsharp />,
-      name: "C#",
+      icon: <FaNodeJs />,
+      name: "Node.js",
+    },
+    {
+      icon: <SiTailwindcss />,
+      name: "Tailwind CSS",
+    },
+    {
+      icon: <SiPostgresql />,
+      name: "PostgreSQL",
+    },
+    {
+      icon: <SiMicrosoftsqlserver />,
+      name: "SQL Server",
+    },
+    {
+      icon: <FaDocker />,
+      name: "Docker",
+    },
+    {
+      icon: <FaGitAlt />,
+      name: "Git",
     },
     {
       icon: <SiPowerbi />,
@@ -103,19 +131,27 @@ const skills = {
     },
     {
       icon: <TbBrandOffice />,
-      name: "Microsoft Office 360",
-    },
-    {
-      icon: <SiMicrosoftsqlserver />,
-      name: "Microsoft SQL Server Management Studio",
+      name: "Microsoft Office 365",
     },
   ],
 };
 
 // libraries data
 const libraries = {
-  title: "My Skills",
+  title: "Libraries & Frameworks",
   librariesList: [
+    {
+      name: "Express.js",
+    },
+    {
+      name: "Drizzle ORM",
+    },
+    {
+      name: "React Router",
+    },
+    {
+      name: "Vite",
+    },
     {
       name: "Pandas",
     },
@@ -317,8 +353,8 @@ const Resume = () => {
                   {/* horizontal line */}
                   <div className="border border-white/20 my-[30px]" />
 
-                  {/* python libraries */}
-                  <h3 className="text-2xl font-bold">Python Libraries</h3>
+                  {/* libraries and frameworks */}
+                  <h3 className="text-2xl font-bold">{libraries.title}</h3>
                   <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px] mt-[30px]">
                     {libraries.librariesList.map((libraries, index) => {
                       return (
