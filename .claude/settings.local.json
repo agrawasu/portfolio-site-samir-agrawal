@@ -33,7 +33,22 @@
       "PowerShell(Get-NetTCPConnection -LocalPort 3180 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; \"stopped\")",
       "Bash(git checkout *)",
       "Bash(git add *)",
-      "Bash(git commit -q -m ' *)"
+      "Bash(git commit -q -m ' *)",
+      "Bash(grep -v \"PanelNav\\\\|// \\\\|/\\\\*\\\\|\\\\*\")",
+      "Bash(rm -f components/ui/input.jsx components/ui/textarea.jsx components/ui/select.jsx)",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3190 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; \"stopped\")",
+      "Bash(NEXT_DIST_DIR=.next-verify npm run build)",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3200 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; Set-Location \"c:\\\\Users\\\\samir\\\\Dev\\\\portfolio-site-samir-agrawal\"; Remove-Item -Recurse -Force \".next\" -ErrorAction SilentlyContinue; \"dev server stopped, .next cleared for your run\")",
+      "Bash(grep -o '\\\\.[a-zA-Z0-9\\\\\\\\:\\\\[\\\\]=_.\\\\/-]*bg-accent[a-zA-Z0-9\\\\\\\\:\\\\[\\\\]=_.\\\\/-]*{[^}]*}' C:/Users/samir/AppData/Local/Temp/claude/c--Users-samir-Dev-portfolio-site-samir-agrawal/4d16e554-bf85-46fa-b38b-3eed24f75917/scratchpad/c.css)",
+      "Bash(grep -o 'bg-accent[^{ ,]*' C:/Users/samir/AppData/Local/Temp/claude/c--Users-samir-Dev-portfolio-site-samir-agrawal/4d16e554-bf85-46fa-b38b-3eed24f75917/scratchpad/c.css)",
+      "Bash(grep -o '[^{}]\\\\{0,90\\\\}{background-color:hsla\\(0,91%,73%,\\\\.12\\)}' C:/Users/samir/AppData/Local/Temp/claude/c--Users-samir-Dev-portfolio-site-samir-agrawal/4d16e554-bf85-46fa-b38b-3eed24f75917/scratchpad/c.css)",
+      "Bash(python - C:/Users/samir/AppData/Local/Temp/claude/c--Users-samir-Dev-portfolio-site-samir-agrawal/4d16e554-bf85-46fa-b38b-3eed24f75917/scratchpad/c.css)",
+      "Bash(node -e \"const t=require\\('./tailwind.config.js'\\); console.log\\('tailwind', require\\('tailwindcss/package.json'\\).version\\)\")",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3210,3211 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; \"stopped\")",
+      "Bash(curl -sIL --max-time 30 \"https://drive.google.com/uc?export=download&id=1mxsNO_CN_fJMqze62JnG7KZsD23WhZsN\")",
+      "Bash(curl -sIL --max-time 30 \"https://drive.google.com/uc?export=download&id=1WAsFypAZmIQ_71qLEziUw_BWtMyVPLnc\")",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3212 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; \"stopped\")",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3213,3214 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; \"stopped\")"
     ]
   }
 }

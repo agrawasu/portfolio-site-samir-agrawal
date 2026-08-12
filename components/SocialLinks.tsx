@@ -38,7 +38,7 @@ export function SocialLinks({
               rel="noreferrer noopener"
               className={
                 variant === "bordered"
-                  ? "flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-accent hover:bg-accent hover:text-primary"
+                  ? "flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-white/70 transition-colors hover:border-accent hover:bg-accent hover:text-canvas"
                   : "flex h-9 w-9 items-center justify-center rounded-full text-white/60 transition-colors hover:bg-white/5 hover:text-accent"
               }
             >

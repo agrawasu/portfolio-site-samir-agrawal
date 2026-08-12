@@ -6,9 +6,9 @@ import type { Project } from "@/content";
 
 interface ProjectCardProps {
   project: Project;
-  /** Home page shows the short summary; the projects page shows the full text. */
+  /** `full` adds the long description and highlights; `summary` is the teaser. */
   variant?: "summary" | "full";
-  /** First card on the page gets priority loading — it is near the fold. */
+  /** Cards near the fold get priority loading. */
   priority?: boolean;
 }
 
@@ -20,41 +20,35 @@ export function ProjectCard({
   const { live, github } = project.links;
 
   return (
-    <article className="surface surface-interactive group flex flex-col overflow-hidden">
-      <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10 bg-primary">
+    <article className="card card-interactive group flex flex-col overflow-hidden bg-surface-sunken">
+      <div className="relative aspect-[16/10] overflow-hidden border-b border-hairline bg-surface">
         {project.image ? (
           <Image
             src={project.image}
             alt={project.imageAlt ?? project.title}
             fill
-            // Two columns from `md` up, full width below — tells the optimiser
-            // which candidate to actually download.
-            sizes="(min-width: 768px) 50vw, 100vw"
+            sizes="(min-width: 1024px) 45vw, 100vw"
             priority={priority}
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
         ) : (
           /*
             No screenshot available. A typographic panel reads as deliberate,
-            where a stretched placeholder image would read as broken.
+            where a stretched placeholder would read as broken.
           */
           <div
             aria-hidden="true"
-            className="flex h-full w-full items-center justify-center bg-[radial-gradient(60%_60%_at_50%_40%,rgba(249,124,124,0.10),transparent_70%)] p-8"
+            className="flex h-full w-full items-center justify-center bg-[radial-gradient(60%_60%_at_50%_40%,rgba(249,124,124,0.12),transparent_70%)] p-8"
           >
-            <span className="eyebrow text-center">
-              {project.category}
-            </span>
+            <span className="meta-label text-center">{project.category}</span>
           </div>
         )}
       </div>
 
-      <div className="flex flex-1 flex-col p-7 xl:p-9">
-        <p className="eyebrow-accent">
-          {project.category}
-        </p>
+      <div className="flex flex-1 flex-col p-6 xl:p-7">
+        <p className="meta-label text-accent/90">{project.category}</p>
 
-        <h3 className="h3 mt-3 text-white">{project.title}</h3>
+        <h3 className="h3 mt-2 text-white">{project.title}</h3>
 
         {project.award ? (
           <p className="mt-3 inline-flex self-start rounded-full border border-trinary/40 bg-trinary/10 px-3 py-1 text-xs text-trinary">
@@ -62,16 +56,16 @@ export function ProjectCard({
           </p>
         ) : null}
 
-        <p className="mt-4 flex-1 text-sm leading-relaxed text-white/60">
+        <p className="mt-3 flex-1 text-sm leading-relaxed text-white/60">
           {variant === "full" ? project.description : project.summary}
         </p>
 
         {variant === "full" && project.highlights?.length ? (
-          <ul className="mt-5 space-y-2">
+          <ul className="mt-4 space-y-2">
             {project.highlights.map((highlight) => (
               <li
                 key={highlight}
-                className="flex gap-3 text-sm leading-relaxed text-white/70"
+                className="flex gap-3 text-sm leading-relaxed text-white/65"
               >
                 <span aria-hidden="true" className="text-accent">
                   —
@@ -82,7 +76,7 @@ export function ProjectCard({
           </ul>
         ) : null}
 
-        <ul className="mt-6 flex flex-wrap gap-2">
+        <ul className="mt-5 flex flex-wrap gap-2">
           {project.stack.map((item) => (
             <li key={item} className="chip">
               {item}
@@ -90,11 +84,8 @@ export function ProjectCard({
           ))}
         </ul>
 
-        <div className="mt-6 flex items-center gap-5 border-t border-white/10 pt-5">
-          {/*
-            Rendered only when a URL exists. The previous version always emitted
-            a Link with an empty href, which is an invalid anchor.
-          */}
+        <div className="mt-5 flex items-center gap-5 border-t border-hairline pt-4">
+          {/* Rendered only when a URL exists — an empty href is an invalid anchor. */}
           {live ? (
             <Link
               href={live}
@@ -122,7 +113,7 @@ export function ProjectCard({
           ) : null}
 
           {!live && !github ? (
-            <p className="text-sm text-white/60">Private — available on request</p>
+            <p className="text-sm text-white/45">Private — available on request</p>
           ) : null}
         </div>
       </div>

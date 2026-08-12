@@ -15,8 +15,13 @@ export const profile = {
     "Information Technology at the University of Cincinnati. I work across the stack — ASP.NET Core and typed React front to back, applied machine learning, and the tooling a live Teeworlds/DDNet community's moderation team runs on. My senior capstone, a mentor matching platform built on real-time matchmaking, won an award at the university's IT Expo.",
   location: "Saint Augustine, Florida",
   email: "agrawasu@mail.uc.edu",
+  /*
+    Direct-download form of the Drive link, so the button downloads the PDF
+    rather than opening Drive's viewer. To update: take the file id out of the
+    /file/d/<id>/view share URL and drop it in here.
+  */
   resumeUrl:
-    "https://drive.google.com/uc?export=download&id=1mxsNO_CN_fJMqze62JnG7KZsD23WhZsN",
+    "https://drive.google.com/uc?export=download&id=1WAsFypAZmIQ_71qLEziUw_BWtMyVPLnc",
 } as const;
 
 export const socials: SocialLink[] = [
