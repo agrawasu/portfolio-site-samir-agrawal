@@ -4,33 +4,338 @@
 
 @layer utilities {
   .scrollbar-thumb-rounded-full {
-    scrollbar-thumb-rounded: full
+    scrollbar-thumb-rounded: full;
   }
   .scrollbar-track-rounded-full {
-    scrollbar-thumb-rounded: full
+    scrollbar-thumb-rounded: full;
   }
 }
 
 @layer base {
+  :root {
+    --header-height: 5rem;
+  }
+
   html {
-    @apply scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-accent scrollbar-track-secondary overflow-y-scroll;
+    @apply scrollbar-thin scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-accent scrollbar-track-secondary;
+    scroll-behavior: smooth;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
-    @apply font-primary bg-primary text-white leading-loose;
+    @apply bg-primary font-sans leading-relaxed text-white antialiased;
   }
+
+  /* Headings tighten up; Inter needs negative tracking at display sizes. */
+  .h1,
+  .h2,
+  .h3 {
+    @apply font-sans tracking-tight;
+  }
+
+  /* Anchor targets clear the sticky header. */
+  [id] {
+    scroll-margin-top: calc(var(--header-height) + 1.5rem);
+  }
+
   .h1 {
-    @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
+    @apply text-[48px] font-semibold leading-[1.05] xl:text-[80px];
   }
   .h2 {
-    @apply text-[36px] xl:text-[48px] leading-[1.1] font-semibold;
+    @apply text-[36px] font-semibold leading-[1.1] xl:text-[48px];
   }
   .h3 {
-    @apply text-[20px] xl:text-[24px] leading-[1.1] font-semibold;
+    @apply text-[20px] font-semibold leading-[1.2] xl:text-[24px];
   }
   .text-outline {
     -webkit-text-stroke: 1px #ffffff;
   }
   .text-outline-hover {
     -webkit-text-stroke: 1px #f97c7c;
+  }
+}
+
+@layer components {
+  /*
+    Small uppercase label. Mono is the point here, but at 12px it needs real
+    contrast and restrained tracking — the previous 0.3em at white/40 measured
+    3.75:1, below the 4.5:1 AA floor, on the smallest text on the page.
+  */
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.12em] text-white/65;
+  }
+
+  .eyebrow-accent {
+    @apply font-mono text-xs uppercase tracking-[0.12em] text-accent;
+  }
+
+  /* Technology chips and other inline metadata. */
+  .chip {
+    @apply rounded-full border border-white/15 px-3 py-1 font-mono text-xs text-white/70;
+    transition:
+      border-color 200ms ease,
+      color 200ms ease;
+  }
+
+  .chip:hover {
+    border-color: rgba(249, 124, 124, 0.4);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /*
+    Shared surface treatment. A flat fill reads as a coloured rectangle; a
+    slight top-down gradient plus a hairline border reads as a raised panel,
+    which is what makes a dark UI feel built rather than blocked out.
+  */
+  .surface {
+    @apply rounded-2xl border border-white/10;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.055) 0%,
+      rgba(255, 255, 255, 0.018) 45%,
+      rgba(255, 255, 255, 0.008) 100%
+    );
+  }
+
+  .surface-interactive {
+    transition:
+      border-color 260ms ease,
+      transform 260ms ease,
+      box-shadow 260ms ease;
+  }
+
+  .surface-interactive:hover {
+    border-color: rgba(249, 124, 124, 0.35);
+    transform: translateY(-3px);
+    box-shadow:
+      0 18px 40px -20px rgba(0, 0, 0, 0.85),
+      0 0 0 1px rgba(249, 124, 124, 0.06);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .surface-interactive:hover {
+      transform: none;
+    }
+  }
+
+
+  /*
+    Persistent backdrop.
+
+    Fixed behind the whole page. Every section's layer stays mounted and only
+    opacity changes, so section-to-section transitions are compositor-only.
+  */
+  .backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .backdrop-grid {
+    position: absolute;
+    inset: -10%;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 76px 76px;
+    -webkit-mask-image: radial-gradient(65% 55% at 50% 45%, #000, transparent);
+    mask-image: radial-gradient(65% 55% at 50% 45%, #000, transparent);
+    transition: transform 1400ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .backdrop-layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    /* Long, eased cross-fade — this is the "state change" the eye reads. */
+    transition:
+      opacity 1100ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 1400ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(1.04);
+  }
+
+  .backdrop[data-active="hero"] .backdrop-layer[data-for="hero"],
+  .backdrop[data-active="range"] .backdrop-layer[data-for="range"],
+  .backdrop[data-active="work"] .backdrop-layer[data-for="work"],
+  .backdrop[data-active="about"] .backdrop-layer[data-for="about"],
+  .backdrop[data-active="contact"] .backdrop-layer[data-for="contact"] {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Each section gets a distinct colour composition and centre of gravity. */
+  .backdrop-layer[data-for="hero"] {
+    background:
+      radial-gradient(
+        44% 40% at 78% 24%,
+        rgba(249, 124, 124, 0.16),
+        transparent 70%
+      ),
+      radial-gradient(
+        48% 44% at 10% 74%,
+        rgba(123, 227, 130, 0.07),
+        transparent 70%
+      );
+  }
+
+  .backdrop-layer[data-for="range"] {
+    background:
+      radial-gradient(
+        50% 46% at 18% 30%,
+        rgba(124, 178, 249, 0.15),
+        transparent 72%
+      ),
+      radial-gradient(
+        42% 40% at 84% 70%,
+        rgba(123, 227, 130, 0.09),
+        transparent 70%
+      );
+  }
+
+  .backdrop-layer[data-for="work"] {
+    background:
+      radial-gradient(
+        58% 50% at 50% 42%,
+        rgba(249, 124, 124, 0.17),
+        transparent 72%
+      ),
+      radial-gradient(
+        40% 38% at 12% 18%,
+        rgba(124, 178, 249, 0.08),
+        transparent 70%
+      );
+  }
+
+  .backdrop-layer[data-for="about"] {
+    background:
+      radial-gradient(
+        52% 48% at 76% 62%,
+        rgba(232, 168, 116, 0.12),
+        transparent 72%
+      ),
+      radial-gradient(
+        44% 40% at 16% 26%,
+        rgba(249, 124, 124, 0.08),
+        transparent 70%
+      );
+  }
+
+  .backdrop-layer[data-for="contact"] {
+    background:
+      radial-gradient(
+        60% 55% at 50% 58%,
+        rgba(123, 227, 130, 0.14),
+        transparent 72%
+      ),
+      radial-gradient(
+        46% 42% at 82% 20%,
+        rgba(249, 124, 124, 0.1),
+        transparent 70%
+      );
+  }
+
+  /* Parallax the grid a little per section so the backdrop is never static. */
+  .backdrop[data-active="range"] .backdrop-grid {
+    transform: translate3d(-1.5%, -2%, 0);
+  }
+  .backdrop[data-active="work"] .backdrop-grid {
+    transform: translate3d(1.5%, -4%, 0) scale(1.05);
+  }
+  .backdrop[data-active="about"] .backdrop-grid {
+    transform: translate3d(-2%, -6%, 0);
+  }
+  .backdrop[data-active="contact"] .backdrop-grid {
+    transform: translate3d(0, -8%, 0) scale(1.08);
+  }
+
+  .backdrop-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      120% 90% at 50% 50%,
+      transparent 40%,
+      rgba(30, 33, 36, 0.55) 100%
+    );
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .backdrop-grid,
+    .backdrop-layer {
+      transition-duration: 1ms;
+      transform: none;
+    }
+  }
+
+  /*
+    Section locking.
+
+    `proximity`, not `mandatory` — sections whose content exceeds the viewport
+    (Selected work, for one) must stay freely scrollable. Proximity snaps only
+    when the scroll already comes to rest near a boundary.
+  */
+  .snap-section {
+    scroll-snap-align: start;
+    /*
+      `always` is what makes it feel like a magnet rather than a suggestion:
+      the scroll cannot fly past a boundary in one flick, so each gesture
+      resolves to exactly one section edge.
+    */
+    scroll-snap-stop: always;
+    /* Snap point sits below the sticky header, not underneath it. */
+    scroll-margin-top: var(--header-height);
+  }
+
+  /*
+    A section taller than the viewport needs a second snap point at its bottom
+    edge — `scroll-snap-align` only gives an element one position, so a tall
+    section would otherwise snap only to its top, dragging you backwards from
+    wherever you stopped inside it.
+
+    Absolutely positioned so it never participates in the section's flex layout.
+  */
+  .snap-end {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    pointer-events: none;
+    scroll-snap-align: end;
+    scroll-snap-stop: always;
+  }
+
+  /*
+    The hero is the exception: pulled up under the header so its backdrop is
+    full-bleed, and snapped flush to the very top of the document.
+  */
+  #hero {
+    margin-top: calc(var(--header-height) * -1);
+    padding-top: var(--header-height);
+    scroll-margin-top: 0;
+  }
+
+  /*
+    Scoped to the home page via `:has(#hero)` — the deep pages are ordinary
+    documents and must not snap. Browsers without `:has()` simply never snap,
+    which is a fine degradation.
+  */
+  @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+    html:has(#hero) {
+      scroll-snap-type: y mandatory;
+    }
+  }
+
+  .hero-title {
+    font-size: clamp(3.25rem, 11vw, 8.5rem);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    font-weight: 600;
   }
 }

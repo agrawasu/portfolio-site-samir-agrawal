@@ -14,25 +14,25 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { useState } from "react";
 
+import { profile } from "@/content";
+
 const contactMessage = "Let's Work Together";
+
+// Phone number and street address deliberately not published here — the form
+// and the email address are enough for anyone who needs to make contact.
 const info = [
-  {
-    icon: <FaPhoneAlt />,
-    title: "Phone",
-    description: "+1 (614) 707 2103",
-  },
   {
     icon: <FaEnvelope />,
     title: "Email",
-    description: "agrawasu@mail.uc.edu",
+    description: profile.email,
   },
   {
     icon: <FaMapMarkerAlt />,
-    title: "Address",
-    description: "384 Silver Sage Lane, Saint Augustine, Florida 32095",
+    title: "Location",
+    description: profile.location,
   },
 ];
 
@@ -88,7 +88,7 @@ const Contact = () => {
   return (
     <motion.section
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: "easeIn" } }}
+      animate={{ opacity: 1, transition: { duration: 0.3, ease: "easeOut" } }}
       className="py-6"
     >
       <div className="container mx-auto">

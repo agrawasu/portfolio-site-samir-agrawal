@@ -1,17 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
+  // Must include ts/tsx — the site is TypeScript now, and any extension missing
+  // here is silently invisible to Tailwind, so its classes never get generated.
   content: [
-    "./pages/**/*.{js,jsx}",
-    "./components/**/*.{js,jsx}",
-    "./app/**/*.{js,jsx}",
-    "./src/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx,ts,tsx}",
+    "./components/**/*.{js,jsx,ts,tsx}",
+    "./content/**/*.{js,jsx,ts,tsx}",
+    "./lib/**/*.{js,jsx,ts,tsx}",
   ],
   prefix: "",
   theme: {
     container: {
       center: true,
-      padding: "15px",
+      // 15px everywhere left content jammed against the viewport edge on
+      // anything wider than a phone.
+      padding: {
+        DEFAULT: "1.25rem",
+        sm: "2rem",
+        lg: "3rem",
+        xl: "4rem",
+      },
     },
     screens: {
       sm: "640px",
@@ -19,10 +28,13 @@ module.exports = {
       lg: "960px",
       xl: "1200px",
     },
-    fontFamily: {
-      primary: "var(--font-jetbrainsMono)",
-    },
     extend: {
+      // Extended, not replaced — setting fontFamily at theme root wipes out
+      // Tailwind's whole scale, which is why body copy had no option but mono.
+      fontFamily: {
+        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-jetbrainsMono)", "ui-monospace", "monospace"],
+      },
       colors: {
         primary: "#1e2124",
         secondary: "#282b30",
