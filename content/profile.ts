@@ -34,7 +34,7 @@ export const socials: SocialLink[] = [
   {
     id: "linkedin",
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/samir-agrawal-b659351ba/",
+    href: "https://www.linkedin.com/in/agrawasu/",
   },
   { id: "x", label: "X", href: "https://x.com/sagrawal22" },
 ];
