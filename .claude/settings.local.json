@@ -59,7 +59,9 @@
       "Bash(rm -f public/assets/*.avif public/assets/projects/*.avif)",
       "Bash(sed -i 's#\"Images pre-converted to WebP/AVIF at build — 6.4 MB of PNGs down to 428 KB\",#\"Images pre-converted to WebP at build — 6.4 MB of source PNGs down to 428 KB\",#' content/projects.ts)",
       "Bash(awk '{print \"  total: \"$1}')",
-      "PowerShell(Get-NetTCPConnection -LocalPort 3220 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; \"stopped\")"
+      "PowerShell(Get-NetTCPConnection -LocalPort 3220 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; \"stopped\")",
+      "Bash(git fetch *)",
+      "Bash(gh run *)"
     ]
   }
 }

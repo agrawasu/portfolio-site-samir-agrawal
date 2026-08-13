@@ -14,7 +14,12 @@ export const profile = {
   intro:
     "Information Technology at the University of Cincinnati. I work across the stack — ASP.NET Core and typed React front to back, applied machine learning, and the tooling a live Teeworlds/DDNet community's moderation team runs on. My senior capstone, a mentor matching platform built on real-time matchmaking, won an award at the university's IT Expo.",
   location: "Saint Augustine, Florida",
-  email: "agrawasu@mail.uc.edu",
+  /*
+    Domain address rather than the university one, which expires with the
+    school account. Set this up as a free forward in Porkbun's email settings
+    so it lands in the personal inbox.
+  */
+  email: "samir@sagrawal.dev",
   /*
     Direct-download form of the Drive link, so the button downloads the PDF
     rather than opening Drive's viewer. To update: take the file id out of the
