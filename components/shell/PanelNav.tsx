@@ -22,8 +22,17 @@ const links = [
  * These are real routes rather than client-side panel swapping, so every view
  * is linkable, refreshable and independently server-rendered.
  */
+/**
+ * `trailingSlash: true` means usePathname() returns "/resume/", while the link
+ * hrefs are written without the slash. Comparing them raw only ever matched
+ * "/", so every tab but About failed to highlight.
+ */
+function normalise(path: string) {
+  return path !== "/" && path.endsWith("/") ? path.slice(0, -1) : path;
+}
+
 export function PanelNav() {
-  const pathname = usePathname();
+  const pathname = normalise(usePathname());
 
   return (
     <nav

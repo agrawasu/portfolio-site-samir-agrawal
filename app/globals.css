@@ -192,8 +192,9 @@
       color 200ms ease;
   }
 
+  /* Text picks up the accent alongside the border, not just a lift to white. */
   .chip:hover {
-    @apply border-accent/45 text-white/90;
+    @apply border-accent/45 text-accent;
   }
 
   @media (prefers-reduced-motion: reduce) {

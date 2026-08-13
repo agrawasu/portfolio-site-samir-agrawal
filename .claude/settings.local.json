@@ -64,7 +64,8 @@
       "Bash(gh run *)",
       "Bash(curl -s -o /dev/null -w \"  pages API: %{http_code}\\\\n\" --max-time 30 \"https://api.github.com/repos/agrawasu/portfolio-site-samir-agrawal/pages\")",
       "Bash(rm -rf .next out)",
-      "Bash(grep -oh 'https://\\\\\\(www\\\\.linkedin\\\\|github\\\\|x\\\\\\)\\\\.com[^\"]*' out/index.html)"
+      "Bash(grep -oh 'https://\\\\\\(www\\\\.linkedin\\\\|github\\\\|x\\\\\\)\\\\.com[^\"]*' out/index.html)",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3230 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; \"stopped\")"
     ]
   }
 }
