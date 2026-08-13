@@ -1,13 +1,15 @@
 # Samir Agrawal — Portfolio
 
-Next.js 14 (App Router) · TypeScript · Tailwind
+Next.js 14 (App Router) · TypeScript · Tailwind · static export to GitHub Pages
 
-Live: https://samir-agrawal-portfolio.netlify.app/
+Live: https://sagrawal.dev
 
 ```bash
 npm install
 npm run dev      # http://localhost:3000
-npm run build    # production build
+npm run build    # static export into out/
+npm run images   # regenerate optimised images from assets-src/
+npm run lint
 ```
 
 ## Architecture
@@ -22,96 +24,98 @@ content/
   types.ts          shared shapes
   pillars.ts        the domains the site is organised around
   profile.ts        name, role, contact, résumé link
-  projects.ts       every project; `featured` drives the home-page grid
+  projects.ts       every project; `featured` drives the About panel
   experience.ts     work history + education
   skills.ts         grouped and tagged by pillar
   certifications.ts
   index.ts          the barrel every page imports from
 ```
 
-Editing content means editing one file, never a component. The home page and
-the deep pages read from the same source, so they cannot drift apart.
+Editing content means editing one file, never a component. The content layer
+stays plain serialisable data — no JSX. Icon mappings live in the presentation
+layer (see `components/SocialLinks.tsx` and the pillar icons in `app/page.tsx`).
 
-The content layer stays plain serialisable data — no JSX. Icon mappings live in
-the presentation layer (see `components/SocialLinks.tsx`), so a future assistant
-corpus can consume `content/` directly.
+### Shell
 
-### Home page: snapped sections over a live backdrop
-
-The home page is a sequence of full-height sections that snap to one another
-over a single persistent backdrop.
+The site is a persistent two-column shell defined once in `app/layout.tsx`:
 
 ```
 components/
-  hero/Hero.tsx            server component — type, CTAs, live readout
-  backdrop/Backdrop.tsx    client — the only client component on the route
-  sections/Section.tsx     shared shell; every section snaps
+  shell/Sidebar.tsx       profile card — sticky on desktop
+  shell/PanelNav.tsx      nav; corner-docked on desktop, bottom bar on mobile
+  shell/PanelHeading.tsx  panel title with the accent rule
 ```
 
-**Backdrop.** One fixed layer behind the whole page. Each section owns a gradient
-composition, all of them stay mounted, and only `opacity` changes — so moving
-between sections is a compositor-only cross-fade with no React re-render and no
-repaint of page content. An `IntersectionObserver` tracks every section's ratio
-and picks the largest; state changes once per section crossing, not per frame.
+Nav items are **real routes, not client-side panel swaps**, so every view is
+linkable, refreshable and independently prerendered. `PanelHeading` carries
+right padding on desktop to reserve space for the nav pill docked in the panel's
+top-right corner.
 
-Tracking ratios for *all* sections, rather than only the entries the observer
-reports, matters: the callback reports deltas only, so picking a winner from
-`entries` alone flickers between neighbours mid-scroll.
+Certifications sits under Resume in the nav rather than as a fifth item — a
+fifth made the pill wide enough to collide with the heading beside it.
 
-**Snapping** uses `scroll-snap-type: y proximity`, deliberately not `mandatory`.
-Sections whose content exceeds the viewport must stay freely scrollable, and
-proximity only snaps once scrolling comes to rest near a boundary. It is
-disabled below `768px` and under `prefers-reduced-motion`.
+### Images
 
-`.snap-section` carries `scroll-margin-top: var(--header-height)` so snap points
-land below the sticky header. `#hero` overrides that to `0` and is pulled up
-under the header with a negative margin, so its backdrop runs full-bleed.
+Masters live in `assets-src/`, **deliberately outside `public/`**. Everything
+under `public/` is copied verbatim into the export, so keeping source PNGs there
+would deploy 6 MB of files nothing references.
 
-**No WebGL.** An earlier version rendered a low-poly desk in react-three-fiber.
-It was cut: representational geometry gets measured against a reference it
-cannot meet at that fidelity, and an abstract backdrop does more for less. The
-entire Three.js stack is gone from the dependency tree.
+`npm run images` converts them into `public/assets/**.webp` (6.4 MB → 428 KB).
+WebP only: with `images.unoptimized` a plain `<img>` is rendered and cannot
+negotiate formats, so any AVIF emitted would ship and never be requested.
 
-### Typography
+**Never point an `<Image>` at a file in `assets-src/`** — reference the
+generated `.webp` under `/assets/`.
 
-Two families, each doing what it is good at — Inter for prose and headings,
-JetBrains Mono reserved for labels, chips and metadata via the `.eyebrow` and
-`.chip` classes.
+### Deployment
 
-Note that `fontFamily` must be set inside `theme.extend`. Setting it at theme
-root replaces Tailwind's entire font scale, which previously left body copy with
-no `font-sans` to inherit and forced every paragraph into monospace.
+`output: "export"` emits static files to `out/`, published to GitHub Pages by
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) on push to `main`.
 
-### Gotcha: Tailwind content globs
+Two files in `public/` matter for Pages:
 
-`tailwind.config.js` must list `ts,tsx`. It originally scanned only `js,jsx`;
-after the TypeScript migration Tailwind silently stopped seeing almost every
-file and tree-shook most of the stylesheet — including all `@layer components`
-classes — with no build error. If styles vanish, check the globs first.
+- **`.nojekyll`** — without it Pages runs Jekyll, which ignores directories
+  starting with an underscore. Next puts everything in `/_next`, so the site
+  would deploy and render completely unstyled.
+- **`CNAME`** — holds `sagrawal.dev`. Deleting it unsets the custom domain.
 
-## Extending it
+`trailingSlash: true` emits each route as a directory with `index.html`, since
+Pages does not rewrite extensionless URLs.
 
-**Ambient / real-time layer.** Partly seeded: the hero readout renders real
-counts from `content/`, and is the natural place for a live or incrementing
-value. If several such elements appear, add one subscribable clock rather than
-letting each component spawn its own timer.
+## Gotchas worth knowing
 
-**Scoped assistant.** Not built. `content/` is already the corpus: a build step
-can serialise the same exports into a retrieval index, and `app/api/` is free
-for the endpoint. No page component would need to change.
+**Tailwind content globs must list `ts,tsx`.** They originally scanned only
+`js,jsx`; after the TypeScript migration Tailwind silently stopped seeing almost
+every file and tree-shook most of the stylesheet, including all
+`@layer components` classes, with no build error. If styles vanish, check here
+first.
 
-**More backdrop states.** Adding a section means adding its id to
-`BACKDROP_SECTIONS` and one CSS rule for its gradient. Nothing else.
+**Opacity modifiers must sit on Tailwind's 5-step scale.** `bg-accent/12`
+compiles to nothing at all — no warning, no error. Use `/10` or `/15`, or
+bracket syntax for an arbitrary value.
+
+**`fontFamily` must be set inside `theme.extend`.** At theme root it replaces
+Tailwind's entire font scale, leaving body copy with no `font-sans` to inherit.
+
+**`NEXT_DIST_DIR` relocates the export too.** It exists so verification builds
+cannot corrupt a running dev server's `.next`, but with `output: "export"` it
+also moves the exported site into that directory instead of `out/`. CI never
+sets it. Don't run a production build into `.next` while `next dev` is serving
+from it — that produces `Cannot find module './NNN.js'`, which is always stale
+cache and never a code problem.
 
 ## Known gaps
 
-- **Mentor Matching has no screenshot.** Its card renders the typographic
-  fallback until one lands in `public/assets/projects/`. Its `stack` lists only
-  the three technologies I could confirm — front-end and data layer are missing.
+- **Mentor Matching has no screenshot.** Its card renders a typographic fallback
+  until one lands in `assets-src/projects/`. Its `stack` lists only the three
+  technologies I could confirm — front-end and data layer are missing.
 - **Loch Suite (Tauri) is intentionally absent** from `projects.ts` pending its
-  overhaul. Tauri stays listed in `skills.ts`. Add an entry once it settles.
+  overhaul. Tauri stays listed in `skills.ts`.
 - **Gamedev and Blender are deliberately excluded** as too niche. `PillarId` is
   a union type, so re-adding a pillar is a typed change the compiler will walk
   you through.
-- `/contact` still uses `emailjs-com` (legacy, unmaintained) and is by far the
-  heaviest route at 163 kB. Worth replacing with a route handler.
+- `/contact` uses `emailjs-com` (legacy, unmaintained) and is the heaviest route
+  at 132 kB. A static host cannot replace it with a route handler, so it would
+  need an external form endpoint.
+- `next@14.2.5` has an open cache-poisoning advisory. It does not affect a
+  static export at runtime, but the version is worth bumping.

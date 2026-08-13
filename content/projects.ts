@@ -58,7 +58,7 @@ export const projects: Project[] = [
       "Docker",
     ],
     links: {},
-    image: "/assets/projects/kogsupportportal.png",
+    image: "/assets/projects/kogsupportportal.webp",
     imageAlt: "KoG Support Portal ticket dashboard",
   },
   {
@@ -78,7 +78,7 @@ export const projects: Project[] = [
     ],
     stack: ["Python", "Discord API", "PostgreSQL"],
     links: { github: "https://github.com/KoG-teeworlds/kog-hammer" },
-    image: "/assets/projects/koghammer.png",
+    image: "/assets/projects/koghammer.webp",
     imageAlt: "KoG Hammer Discord bot command output",
   },
   {
@@ -106,37 +106,37 @@ export const projects: Project[] = [
       "SQL Server",
     ],
     links: { github: "https://github.com/agrawasu/foreclosureProperties" },
-    image: "/assets/projects/foreclosuresfl.png",
+    image: "/assets/projects/foreclosuresfl.webp",
     imageAlt: "Recommended max bid calculator interface",
   },
   {
     id: "portfolio",
     title: "This Site",
-    category: "Web · real-time 3D",
+    category: "Web · static site",
     pillars: ["web"],
     featured: false,
     summary:
-      "A Next.js portfolio with a hand-built low-poly WebGL hero that loads asynchronously, gates itself off on constrained devices, and stops rendering entirely once scrolled past.",
+      "A statically exported Next.js portfolio built around a persistent sidebar shell, with every page server-rendered ahead of time and images pre-optimised at build.",
     description:
-      "Built on Next.js and TypeScript, with a stylised low-poly developer desk rendered in WebGL at the top of the page. The 3D scene is code-split and loaded only after the page content has painted, skipped entirely when the device reports low memory, low core count, reduced-motion preference or a saving-data connection, and halted once it scrolls out of view. Lighting is baked, there is no post-processing pass, and dust motes animate on the GPU from a single draw call.",
+      "Built on Next.js and TypeScript, structured as a two-column shell: a sticky profile sidebar beside a content panel whose nav items are real routes rather than client-side swaps, so every view is linkable and independently prerendered. All content lives in a typed layer that the pages read from, so the site cannot drift out of sync with itself. It exports to static files and deploys to GitHub Pages from a build workflow.",
     highlights: [
-      "3D hero never blocks first paint — the headline is server-rendered HTML",
-      "Capability and preference gating, with a designed static fallback",
-      "Render loop stops on scroll-out and tab blur",
+      "Every route statically prerendered; the only client component is the form",
+      "Images pre-converted to WebP at build — 6.4 MB of source PNGs down to 428 KB",
+      "Typed content layer shared by the home panels and the deep pages",
     ],
     stack: [
       "Next.js",
       "TypeScript",
-      "React Three Fiber",
-      "Three.js",
       "Tailwind CSS",
-      "Framer Motion",
+      "Radix UI",
+      "GitHub Actions",
+      "sharp",
     ],
     links: {
-      live: "https://samir-agrawal-portfolio.netlify.app/",
+      live: "https://sagrawal.dev",
       github: "https://github.com/agrawasu/portfolio-site-samir-agrawal",
     },
-    image: "/assets/projects/portfolio.png",
+    image: "/assets/projects/portfolio.webp",
     imageAlt: "Portfolio site home page",
   },
   {
@@ -151,7 +151,7 @@ export const projects: Project[] = [
       "This came out of a need encountered while moderating for the DDraceNetwork KoG community. Server chat logs arrive as text files, and with the large majority of the player base being non-English speakers, reading them was a bottleneck. The program takes a log file, detects whatever languages appear inside it, and translates them through the DeepL API into a target language of the user's choice.",
     stack: ["Python", "DeepL API", "json", "os"],
     links: { github: "https://github.com/agrawasu/text-translator" },
-    image: "/assets/projects/texttranslator.png",
+    image: "/assets/projects/texttranslator.webp",
     imageAlt: "Text file translator console output",
   },
   {
@@ -168,7 +168,7 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/agrawasu/steganography-password-manager",
     },
-    image: "/assets/projects/passwordmanager.png",
+    image: "/assets/projects/passwordmanager.webp",
     imageAlt: "Steganography password manager interface",
   },
   {
@@ -190,7 +190,7 @@ export const projects: Project[] = [
       "Scikit-Learn",
     ],
     links: { github: "https://github.com/agrawasu/house-pricing-predictor" },
-    image: "/assets/projects/housepricing.png",
+    image: "/assets/projects/housepricing.webp",
     imageAlt: "House pricing prediction chart",
   },
   {
@@ -208,7 +208,7 @@ export const projects: Project[] = [
       live: "https://crash-report-nyc.streamlit.app/",
       github: "https://github.com/agrawasu/data-web-app-python",
     },
-    image: "/assets/projects/crashtracker.png",
+    image: "/assets/projects/crashtracker.webp",
     imageAlt: "NYC crash reports dashboard map",
   },
 ];

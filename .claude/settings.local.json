@@ -48,7 +48,18 @@
       "Bash(curl -sIL --max-time 30 \"https://drive.google.com/uc?export=download&id=1mxsNO_CN_fJMqze62JnG7KZsD23WhZsN\")",
       "Bash(curl -sIL --max-time 30 \"https://drive.google.com/uc?export=download&id=1WAsFypAZmIQ_71qLEziUw_BWtMyVPLnc\")",
       "PowerShell(Get-NetTCPConnection -LocalPort 3212 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; \"stopped\")",
-      "PowerShell(Get-NetTCPConnection -LocalPort 3213,3214 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; \"stopped\")"
+      "PowerShell(Get-NetTCPConnection -LocalPort 3213,3214 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; \"stopped\")",
+      "Bash(git push *)",
+      "Bash(npm audit *)",
+      "Bash(node -e \"console.log\\(Object.keys\\(require\\('./package.json'\\).dependencies\\).length + ' prod deps'\\)\")",
+      "Bash(node -e \"console.log\\('sharp', require\\('sharp/package.json'\\).version\\)\")",
+      "Bash(node -e \"const s=require\\('sharp'\\); console.log\\('sharp loaded, libvips', s.versions.vips\\)\")",
+      "Bash(sed -i 's#/assets/projects/opt/#/assets/projects/#g' content/projects.ts)",
+      "Bash(sed -i 's#/assets/opt/portfolioimg.webp#/assets/portfolioimg.webp#' components/shell/Sidebar.tsx)",
+      "Bash(rm -f public/assets/*.avif public/assets/projects/*.avif)",
+      "Bash(sed -i 's#\"Images pre-converted to WebP/AVIF at build — 6.4 MB of PNGs down to 428 KB\",#\"Images pre-converted to WebP at build — 6.4 MB of source PNGs down to 428 KB\",#' content/projects.ts)",
+      "Bash(awk '{print \"  total: \"$1}')",
+      "PowerShell(Get-NetTCPConnection -LocalPort 3220 -State Listen -ErrorAction SilentlyContinue | Select-Object -ExpandProperty OwningProcess -Unique | ForEach-Object { Stop-Process -Id $_ -Force -ErrorAction SilentlyContinue }; \"stopped\")"
     ]
   }
 }

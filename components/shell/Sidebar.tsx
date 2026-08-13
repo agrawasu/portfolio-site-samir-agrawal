@@ -37,7 +37,7 @@ export function Sidebar() {
       <div className="flex flex-row items-center gap-5 lg:flex-col lg:gap-0">
         <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-[20px] bg-surface-raised lg:h-[150px] lg:w-[150px]">
           <Image
-            src="/assets/portfolioimg.png"
+            src="/assets/portfolioimg.webp"
             alt={`Portrait of ${profile.name}`}
             fill
             sizes="150px"

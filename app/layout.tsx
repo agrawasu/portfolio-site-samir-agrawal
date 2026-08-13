@@ -25,7 +25,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://samir-agrawal-portfolio.netlify.app"),
+  // Makes OpenGraph and canonical URLs absolute — a wrong value here silently
+  // breaks link previews wherever the site is shared.
+  metadataBase: new URL("https://sagrawal.dev"),
   title: {
     default: "Samir Agrawal — Full-Stack Developer",
     template: "%s — Samir Agrawal",
